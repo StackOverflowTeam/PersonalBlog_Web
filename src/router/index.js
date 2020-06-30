@@ -33,31 +33,20 @@ const routes = [
     name: "Dashboard",
     redirect: "/home",
     meta: {
-      title: "仪表盘"
+      title: "首页"
     },
     children: [
       {
         path: "home",
         name: "DashboardHome",
         meta: {
-          title: "首页"
+          title: "个人中心"
         },
         component: resolve => require(["@/views/home/Index.vue"], resolve)
       }
     ]
   },
   ArticleManage,
-  {
-    path: "/login",
-    name: "Login",
-    meta: {
-      title: "后台登录",
-      keepAlive: false
-    },
-    components: {
-      blank: resolve => require(["@/views/login/Login.vue"], resolve)
-    }
-  }
 ];
 
 const originalPush = VueRouter.prototype.push;

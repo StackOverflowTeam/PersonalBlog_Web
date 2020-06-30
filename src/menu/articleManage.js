@@ -1,17 +1,17 @@
 export default {
-  name: "文章管理",
+  name: "博客",
   permissionsKey: "",
   icon: "fa fa-envelope-open",
   children: {
     courseCardList: {
-      name: "文章列表",
-      permissionsKey: "",
-      path: "/article_manage/list"
-    },
-    organCardList: {
-      name: "文章分类",
+      name: "写博客",
       permissionsKey: "",
       path: "/articleManage/category"
+    },
+    organCardList: {
+      name: "我的博客",
+      permissionsKey: "",
+      path: "/list"
     }
   }
 };

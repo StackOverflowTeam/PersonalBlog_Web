@@ -1,15 +1,7 @@
 <template>
   <div>
     <ToolBar>
-      <div>
-        <el-button type="primary" size="small" @click="showEditDialog = true"
-          >编辑添加，字段各种规则验证示例</el-button
-        >
-        <el-button type="primary" size="small" @click="exportTable"
-          >本地导出表格</el-button
-        >
-      </div>
-      <div>
+      <div style="margin-left: 200px;">
         <el-input
           placeholder="请输入文章标题"
           size="small"
@@ -30,12 +22,10 @@
         <el-button type="success" size="small" @click="refresh()"
           >查询</el-button
         >
-        <el-button type="warning" size="small" @click="clearSearchParams()"
-          >重置</el-button
-        >
       </div>
     </ToolBar>
-    <el-table :data="tableData" border style="width: 100%">
+	
+    <el-table :data="tableData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%">
       <el-table-column prop="title" label="文章标题"> </el-table-column>
       <el-table-column prop="" label="作者">
         <template slot-scope="s">
@@ -47,7 +37,7 @@
       <el-table-column fixed="right" label="操作" width="240">
         <div slot-scope="s">
           <el-button type="primary" size="small" @click="routeDemo(s.row)"
-            >多层级路由面包屑示例</el-button
+            >查看</el-button
           >
           <el-button type="danger" size="small" @click="removeItem(s.row)"
             >删除</el-button
@@ -55,29 +45,31 @@
         </div>
       </el-table-column>
     </el-table>
-    <!--    <Pagination-->
-    <!--      :params="searchParams"-->
-    <!--      :requestFunc="requestFunc"-->
-    <!--      ref="pagination"-->
-    <!--      @returnData="returnData"-->
-    <!--    />-->
-    <Edit :showEditDialog="showEditDialog" @close="showEditDialog = false" />
-  </div>
+	<el-pagination
+				layout="prev, pager, next"
+				@current-change="currentChange"
+				@size-change="handleSizeChange"
+				:current-page="currpage"
+				:page-size="pagesize"
+	  :total="7">
+	</el-pagination>
+<!--    <Edit :showEditDialog="showEditDialog" @close="showEditDialog = false" />
+ -->  </div>
 </template>
 
 <script>
 import { topics } from "@/api/articleManage/list";
-import { exportCvsTable } from "@/utils/cvs";
-import { resetObject } from "@/utils/common";
-import Edit from "./Edit.vue";
+//import Edit from "./Edit.vue";
 export default {
   data() {
     return {
+		pagesize: 4,//每页显示的数据
+		currpage: 1,//默认为第一页
       searchParams: {
         title: "",
         type: ""
       },
-      showEditDialog: false,
+      //showEditDialog: false,
       tableData: []
     };
   },
@@ -92,26 +84,13 @@ export default {
     routeDemo() {
       this.$message.info("待添加");
     },
-    exportTable() {
-      exportCvsTable(
-        [
-          { title: "文章标题", field: "title" },
-          { title: "浏览量", field: "visit_count" }
-        ],
-        this.tableData,
-        "文章列表"
-      );
-    },
     refresh() {
       //this.$refs.pagination.Refresh(); //分页刷新
     },
     returnData(pageList) {
       this.tableData = pageList.list;
     },
-    clearSearchParams() {
-      resetObject(this.searchParams);
-      this.refresh();
-    },
+
     removeItem(row) {
       this.$confirm("确定删除?", "提示", {
         confirmButtonText: "确定",
@@ -131,8 +110,14 @@ export default {
           //   .catch(() => {});
         })
         .catch(() => {});
-    }
+    },
+	currentChange(currentPage){
+	  this.currpage = currentPage;
+	},
+	 handleSizeChange(size) {
+			this.pagesize = size;
+		}
   },
-  components: { Edit }
+  //components: { Edit }
 };
 </script>

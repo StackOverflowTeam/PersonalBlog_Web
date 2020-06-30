@@ -5,7 +5,7 @@ import articleManage from "./articleManage.js";
  * @type {{name: string, path: string, icon: string}}
  */
 let home = {
-  name: "首页",
+  name: "个人中心",
   path: "/",
   permissionsKey: "",
   icon: "fa fa-tachometer"

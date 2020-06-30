@@ -6,14 +6,15 @@
 					<h1 class="logo" style="margin-left: 50px;font-size: 12px;float: left;margin-top: 20px;">
 						<img src="@/assets/images/logo.png">
 					</h1>
-				<div class="nav" style="margin-left: 150px;float: left;">
-					<a  class="active" href="#">文章</a>
-					<a  href="#">微语</a>
-					<a  href="#">留言</a>
-					<a  href="#">相册</a>
-				</div>   
+					<el-menu :default-active="$router.path" background-color="white" class="nav" mode="horizontal" router>
+					  <el-menu-item >文章</el-menu-item>
+					  <el-menu-item >微语</el-menu-item>
+					  <el-menu-item >留言</el-menu-item>
+				      <el-menu-item >相册</el-menu-item>
+					  <el-menu-item index="/home">个人主页</el-menu-item>
+					</el-menu>
 				<span style="margin-right: 50px;float: right;">欢迎来到
-				<a href="#" style="font-size:15px ;">小明 </a>的博客~</span>	
+			    <a href="http://localhost:8080/#/home" style="font-size:15px ;">小明 </a>的博客~</span>	
 			</div>
 			<div  class="header-botton">
 				<div style="float: left;margin: 0 auto;margin-top: 100px;">
@@ -102,7 +103,7 @@
 			   <div style="height:150px;width: 30%;float: right;margin-right: 100px;margin-top: 100px;">
 				   <img src="../../assets/images/down_img.jpg" style="float: left;height: 120px">
 				       <div style="float: left;margin-left: 20px;margin-top: 30px;">
-							<p>我的联系方式</p>
+							<p style="margin-bottom: 10px;">我的联系方式</p>
 							<p>微信 :   1234567890</p>
 							<p>手机 :   1234567890</p>
 							<p>邮箱 :   1234567890@qq.com</p>
@@ -129,12 +130,12 @@ export default {
 };
 </script>
 <style lang="scss">
-.nav a{
-	color: #3f2863; margin:0 30px;
+.nav{
+	margin-left: 15%;
+	margin-top: 20px;
+	float: left;
 }
-.nav a:focus{
-	color:orangered
-}
+
 .header-botton {
 	background-image: url(../../assets/images/banner.jpg);
 	background-size: cover;

@@ -5,14 +5,14 @@ export default {
   name: "ArticleManage",
   redirect: "/article_manage/list",
   meta: {
-    title: "文章管理"
+    title: "个人博客"
   },
   children: [
     {
-      path: "list",
+      path: "/list",
       name: "ArticleManageList",
       meta: {
-        title: "文章列表"
+        title: "我的博客"
       },
       component: resolve =>
         require(["@/views/articleManage/articleList/Index.vue"], resolve)

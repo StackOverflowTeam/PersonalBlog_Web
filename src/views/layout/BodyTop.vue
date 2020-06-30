@@ -13,7 +13,6 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <div style="padding: 10px 20px;text-align: center;">
-            导航类型：
             <el-button-group>
               <el-button
                 :type="system.navType === item.value ? 'primary' : ''"
@@ -38,11 +37,11 @@
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item @click.native="$router.push('/personal')">
-            <i style="padding-right: 8px" class="fa fa-user"></i>个人中心
+          <el-dropdown-item @click.native="$router.push('/personhome')">
+            <i style="padding-right: 8px" class="fa fa-user"></i>主页
           </el-dropdown-item>
-          <el-dropdown-item @click.native="logout">
-            <i style="padding-right: 8px" class="fa fa-sign-out"></i>退出系统
+          <el-dropdown-item @click.native="$router.push('/login')">
+            <i style="padding-right: 8px" class="fa fa-sign-out"></i>退出
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -59,7 +58,7 @@ export default {
   data() {
     return {
       menu: Menu,
-      userName: "Admin"
+      userName: "小明"
     };
   },
   methods: {
@@ -76,7 +75,6 @@ export default {
           });
         });
     },
-    logout() {}
   },
   computed: mapState(["system"])
 };
