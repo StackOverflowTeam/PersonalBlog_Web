@@ -16,6 +16,15 @@ export default {
       },
       component: resolve =>
         require(["@/views/articleManage/articleList/Index.vue"], resolve)
-    }
+    },
+	{
+	  path: "/writlist",
+	  name: "ArticleManageList",
+	  meta: {
+	    title: "写博客"
+	  },
+	  component: resolve =>
+	    require(["@/views/articleManage/articleList/WritBlog.vue"], resolve)
+	}
   ]
 };

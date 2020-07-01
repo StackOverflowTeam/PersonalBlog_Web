@@ -131,7 +131,7 @@ export default {
 </script>
 <style lang="scss">
 .nav{
-	margin-left: 15%;
+	margin-left: 20%;
 	margin-top: 20px;
 	float: left;
 }

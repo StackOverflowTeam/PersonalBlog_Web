@@ -6,7 +6,7 @@ export default {
     courseCardList: {
       name: "写博客",
       permissionsKey: "",
-      path: "/articleManage/category"
+      path: "/writlist"
     },
     organCardList: {
       name: "我的博客",

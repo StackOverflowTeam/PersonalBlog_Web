@@ -16,8 +16,9 @@
           placeholder="请选择类型"
           size="small"
         >
-          <el-option label="招聘信息" value="1"></el-option>
-          <el-option label="技术交流" value="2"></el-option>
+          <el-option label="日常随笔" value="1"></el-option>
+          <el-option label="心情" value="2"></el-option>
+		  <el-option label="其他" value="3"></el-option>
         </el-select>
         <el-button type="success" size="small" @click="refresh()"
           >查询</el-button
@@ -29,7 +30,7 @@
       <el-table-column prop="title" label="文章标题"> </el-table-column>
       <el-table-column prop="" label="作者">
         <template slot-scope="s">
-          {{ s.row.author.loginname }}
+         {{ s.row.author.loginname }}
         </template>
       </el-table-column>
       <el-table-column prop="visit_count" label="浏览量"></el-table-column>
@@ -63,7 +64,7 @@ import { topics } from "@/api/articleManage/list";
 export default {
   data() {
     return {
-		pagesize: 4,//每页显示的数据
+		pagesize: 5,//每页显示的数据
 		currpage: 1,//默认为第一页
       searchParams: {
         title: "",
