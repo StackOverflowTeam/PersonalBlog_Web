@@ -9,10 +9,30 @@ const routes = [
 	  path: "/personhome",
 	  name: "Home",
 	  meta: {
-	    title: "主页",
+	    title: "首页",
 	  },
 	  components: {
 	    blank: resolve => require(["@/views/home/Bloghome.vue"], resolve)
+	  }
+	},
+	{
+	  path: "/massage",
+	  name: "massage",
+	  meta: {
+	    title: "留言",
+	  },
+	  components: {
+	    blank: resolve => require(["@/views/home/Massage.vue"], resolve)
+	  }
+	},
+	{
+	  path: "/photo",
+	  name: "photo",
+	  meta: {
+	    title: "相册",
+	  },
+	  components: {
+	    blank: resolve => require(["@/views/home/Photo.vue"], resolve)
 	  }
 	},
 	{

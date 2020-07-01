@@ -3,7 +3,7 @@
 		<span style="padding: 0;margin: 0;font-size: 10px;">记录我的点点滴滴...
 		</span>
 		<div style="padding-bottom: 80px;margin-left: 200px;">
-			  <el-button type="success" size="medium"  @click="chage()" style="float: right;">查看我的博客</el-button>
+			  <el-button type="success" size="medium"  @click="chage" style="float: right;">查看我的博客</el-button>
 		</div>
 		<p style="text-align: center;margin-bottom: 20px;font-size: 20px;">编写我的博客</p>
     <el-form
@@ -43,8 +43,12 @@
 	  		 </el-upload>
 	  </el-form-item>
       <el-form-item label="内容" prop="desc">
-        <el-input style="width: 350px;" v-model="forms.desc" type="textarea" placeholder="请输入您的内容(必填)"></el-input>
-      </el-form-item>
+		  <textarea
+		    placeholder="请输入您的内容(必填)"
+			v-model="forms.desc"
+		    style="width: 55%;height: 130px;border: 1 solid gray;" >
+		  </textarea>
+	</el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="$emit('close')" style="margin-right: 68px;margin-left:44%;">取 消</el-button>
@@ -142,9 +146,9 @@ export default {
 	      handlePreview(file) {
 	        console.log(file);
 	      },
-		  chage() {
-		    this.$route.name("/list");
-		  },
+		 chage(){
+			 this.$router.replace("/list");
+		 },
     FillerFormField(id, data) {
       //可以外部填充回写做编辑用，也可以请求详情接口填充表单
       this.$set(this.forms, "id", id);
