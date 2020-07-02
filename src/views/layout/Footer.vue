@@ -1,14 +1,30 @@
+<!--
+ * @Author: Zhang Qing
+ * @Date: 2020-07-02 17:24:07
+ * @LastEditTime: 2020-07-02 23:26:25
+ * @LastEditors: your name
+ * @Description: 底边栏
+ * @FilePath: \PersonalBlog_Web\src\views\layout\Footer.vue
+--> 
 <template>
- <div class="footer">
+  <div class="footer">
     <div class="version">
-      <a href="javascript:;" style="margin-right: 20px">{{
+      <a href="javascript:;" style="margin-right: 20px">
+        {{
         GlobalCfg.siteName
-      }}</a>
+        }}
+      </a>
+      <b>Version</b>
+      {{ GlobalCfg.version }}
     </div>
     <strong>
       若给您带来不便,请联系
-      <a href="javascript:;"> {{ GlobalCfg.corporation }} </a></strong
-    >
+      <a href="javascript:;">{{ GlobalCfg.corporation }}</a>
+    </strong>
+    <strong>
+      Copyright © 2020
+      <a href="javascript:;">{{ GlobalCfg.corporation }}</a>.
+    </strong> rights reserved.
   </div>
 </template>
 
@@ -22,7 +38,7 @@
   font-size: 14px;
   background: #fff;
   line-height: 20px;
-  padding: 0 ;
+  padding: 0;
   height: 20px;
   color: #444;
   border-top: 1px solid #d2d6de;

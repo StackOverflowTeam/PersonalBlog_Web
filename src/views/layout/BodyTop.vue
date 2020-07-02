@@ -7,10 +7,11 @@
       <span class="body-top-btn" @click="screenFullToggle">
         <i class="fa fa-arrows-alt"></i>
       </span>
+      <!--其实个人觉得这级el-dropdown可以不要。————来自zq的吐槽 -->
       <el-dropdown>
         <span class="body-top-btn">
           <i class="el-icon-setting"></i>
-        </span>
+        </span> 
         <el-dropdown-menu slot="dropdown">
           <div style="padding: 10px 20px;text-align: center;">
             <el-button-group>
@@ -27,12 +28,16 @@
         </el-dropdown-menu>
       </el-dropdown>
       <span class="body-top-btn">
+      <!-- 这个铃铛标志也有点鸡肋 看到红点我就想点 想消掉欸。————来自zq的吐槽-->
         <el-badge is-dot class="badge">
           <i class="el-icon-bell"></i>
         </el-badge>
       </span>
       <el-dropdown>
         <span class="body-top-btn">
+        <!-- Tips: 还是要想办法动态生成username-->
+        <!-- 如果上面的标志删了后就会显得顶部有点空 可以考虑把这个二级标题拆开-->
+        <!-- 写前端的 耐心点  不要打“死”我-->
           {{ userName }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -58,6 +63,7 @@ export default {
   data() {
     return {
       menu: Menu,
+      // 动态获取
       userName: "小明"
     };
   },

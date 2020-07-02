@@ -1,4 +1,4 @@
-import { useApiUrl } from "@/config/apiUrl";
+ import { useApiUrl } from "@/config/apiUrl";
 // import CommonConfig from "@/config/common";
 // import SystemConfig from "@/config/system";
 
@@ -7,5 +7,5 @@ export default {
   // ...SystemConfig,
   apiUrl: useApiUrl,
   corporation: "StackOverflow",
-  siteName: "个人博客"
+  siteName: "PersonalSite"
 };
