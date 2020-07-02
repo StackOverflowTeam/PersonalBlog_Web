@@ -26,6 +26,16 @@ const routes = [
 	  }
 	},
 	{
+	  path: "/saylittle",
+	  name: "saylittle",
+	  meta: {
+	    title: "留言",
+	  },
+	  components: {
+	    blank: resolve => require(["@/views/home/Saylittle.vue"], resolve)
+	  }
+	},
+	{
 	  path: "/photo",
 	  name: "photo",
 	  meta: {
