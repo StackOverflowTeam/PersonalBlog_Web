@@ -2,8 +2,10 @@ import Axios from "axios";
 import Config from "@/config/app";
 import { Notification, Loading } from "element-ui";
 import { getToken } from "../utils/common";
+import { serverApiUrl } from "@/config/apiUrl"
+
 const service = Axios.create({
-  baseURL: Config.apiUrl + "/" + Config.apiPrefix,
+  baseURL: serverApiUrl,
   headers: {
     Accept: "*/*"
   },
@@ -41,15 +43,15 @@ service.interceptors.response.use(
       if (res.config.closeInterceptors) {
         return res.data;
       }
-      if (!res.data.success) {
-        //removeToken(); //登陆失效执行
-        Notification({
-          title: "数据返回出错",
-          message: "请稍后重试",
-          type: "warning"
-        });
-        return Promise.reject("error");
-      }
+      // if (!res.data.success) {
+      //   //removeToken(); //登陆失效执行
+      //   Notification({
+      //     title: "数据返回出错",
+      //     message: "请稍后重试",
+      //     type: "warning"
+      //   });
+      //   return Promise.reject("error");
+      // }
       return res.data.data;
     }
   },

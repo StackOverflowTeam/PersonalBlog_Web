@@ -1,8 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
+
 import elementUi from "element-ui";
 import Config from "@/config/app";
 import "@/assets/css/style.scss";
+
 import router from "./router";
 import store from "./store";
 import "@/utils/v-auth.js";
