@@ -7,7 +7,9 @@
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\categoryManage.vue
 --> 
 <template>
-  
+  <div>
+  这里需要写页面
+  </div>
 </template>
 
 <script>
