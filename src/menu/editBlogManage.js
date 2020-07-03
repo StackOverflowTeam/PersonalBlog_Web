@@ -10,5 +10,5 @@
  export default {
    name:"发布博客",
    icon:"",
-   path:""
+   path:"/editBlog"
  };

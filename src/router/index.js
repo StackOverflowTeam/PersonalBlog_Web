@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-02 17:24:07
- * @LastEditTime: 2020-07-03 00:19:20
+ * @LastEditTime: 2020-07-03 11:09:41
  * @LastEditors: your name
  * @Description: 
  * @FilePath: \PersonalBlog_Web\src\router\index.js
@@ -10,6 +10,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/views/layout/App.vue";
 import ArticleManage from "./articleManage";
+import EditBlogManage from "./editBlogManage";
+import ModelManage from "./modelManage";
+import SystemManage from "./systemManage";
 Vue.use(VueRouter);
 
 const routes = [
@@ -87,6 +90,9 @@ const routes = [
     ]
   },
 	ArticleManage,
+	EditBlogManage,
+	ModelManage,
+	SystemManage
 ];
 
 const originalPush = VueRouter.prototype.push;
