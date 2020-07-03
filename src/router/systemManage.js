@@ -20,7 +20,7 @@ export default {
       path: '/modifyPassword',
       name: 'ModifyPassword',
       meta: {
-        title: '修改个人信息'
+        title: '修改密码'
       },
       component: resolve => require(["@/views/systemManage/ModifyPassword.vue"],resolve)
       // require里的路径是页面的路径
