@@ -16,10 +16,10 @@
 	  </div>
       <div class="demo">
       <!-- 这里可能需要调整排版 背景颜色 图标的更换  一共有6个块  待完善-->
-        <el-row :gutter="20">
+        <el-row :gutter="20" style="padding: 10px">
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #673AB7">
+              <div style="padding: 20px;background: #673AB7">
                 <i class="el-icon-s-custom index-icon"></i>
                 新增博客
               </div>
@@ -27,7 +27,7 @@
           </el-col>
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #3c8dbc">
+              <div style="padding: 20px;background: #3c8dbc">
                 <i class="el-icon-picture index-icon"></i>
                 总文章数
               </div>
@@ -35,52 +35,36 @@
           </el-col>
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #009688">
+              <div style="padding: 20px;background: #009688">
                 <i class="el-icon-shopping-bag-1 index-icon"></i>
                收到的评论数
               </div>
             </div>
           </el-col>
+		  </el-row>
+		  <el-row :gutter="20" style="padding: 10px">
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #607D8B">
+              <div style="padding: 20px;background: #607D8B">
                 <i class="el-icon-shopping-cart-2 index-icon"></i>
               分类数量
               </div>
             </div>
           </el-col>
-        </el-row>
         <!-- 这里调整行间距 -->
-        <el-row :gutter="20">
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #673AB7">
+              <div style="padding: 20px;background: #673AB7">
                 <i class="el-icon-s-custom index-icon"></i>
-                新增博客
+                标签总量
               </div>
             </div>
           </el-col>
           <el-col :span="6">
             <div class="grid-content ">
-              <div style="padding: 10px;background: #3c8dbc">
+              <div style="padding: 20px;background: #3c8dbc">
                 <i class="el-icon-picture index-icon"></i>
-                总文章数
-              </div>
-            </div>
-          </el-col>
-          <el-col :span="6">
-            <div class="grid-content ">
-              <div style="padding: 10px;background: #009688">
-                <i class="el-icon-shopping-bag-1 index-icon"></i>
-               收到的评论数
-              </div>
-            </div>
-          </el-col>
-          <el-col :span="6">
-            <div class="grid-content ">
-              <div style="padding: 10px;background: #607D8B">
-                <i class="el-icon-shopping-cart-2 index-icon"></i>
-              分类数量
+                友情链接
               </div>
             </div>
           </el-col>
