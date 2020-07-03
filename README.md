@@ -1,24 +1,24 @@
 
-# VueElementUiAdmin
+# PersonBlog_Web
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn dev
+npm dev
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+npm build
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm lint
 ```
 
 ### Customize configuration
@@ -33,6 +33,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## 关于前端页面（2020/07/03）
 - 只是大概的框架  具体都没有美化
-
-### 备忘（2020/07/03）
-- 安全退出不写页面 要加router ！！！
