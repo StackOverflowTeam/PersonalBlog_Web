@@ -8,11 +8,14 @@
 			<li :class="[showHot==1?'active':'']" @click="showHot=1">微语</li>
 			<li :class="[showHot==2?'active':'']" @click="showHot=2">留言</li>
 			<li :class="[showHot==3?'active':'']" @click="showHot=3">相册</li>
-			<li ><a href="http://localhost:8080/#/home" style="color: orangered;line-height: 48px;">个人主页</a></li>
+			<!-- href="http://localhost:8080/#/home" -->
+			<li ><a  style="color: orangered;line-height: 48px;">个人主页</a></li>
 		</ul>
 		<div>
 			<span style="margin-right: 50px;float: right;">欢迎来到
-			<a href="http://localhost:8080/#/home" style="font-size:20px ;">{{personname}} </a>的博客~</span>	
+		<!--	<a href="http://localhost:8080/#/home" style="font-size:20px ;"> -->
+		<a href="http://localhost:8080/#/home" target="_self" style="font-size:20px ;">
+			{{personname}} </a>的博客~</span>	
 		</div>
 		<div class="main" style="padding-top: 20px;">
 			<artical v-show="showHot==0"></artical>

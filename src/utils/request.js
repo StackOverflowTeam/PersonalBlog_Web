@@ -1,3 +1,11 @@
+/*
+ * @Author: Zhang Qing
+ * @Date: 2020-07-02 17:38:24
+ * @LastEditTime: 2020-07-02 17:44:20
+ * @LastEditors: your name
+ * @Description: 
+ * @FilePath: \PersonalBlog_Web-1\src\utils\request.js
+ */ 
 import Axios from "axios";
 import Config from "@/config/app";
 import { Notification, Loading } from "element-ui";
@@ -52,7 +60,8 @@ service.interceptors.response.use(
       //   });
       //   return Promise.reject("error");
       // }
-      return res.data.data;
+      console.log(res.data);
+      return res.data;
     }
   },
   error => {

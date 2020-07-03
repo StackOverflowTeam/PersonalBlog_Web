@@ -1,7 +1,18 @@
+/*
+ * @Author: Zhang Qing
+ * @Date: 2020-07-02 17:24:07
+ * @LastEditTime: 2020-07-03 11:09:41
+ * @LastEditors: your name
+ * @Description: 
+ * @FilePath: \PersonalBlog_Web\src\router\index.js
+ */ 
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/views/layout/App.vue";
 import ArticleManage from "./articleManage";
+import EditBlogManage from "./editBlogManage";
+import ModelManage from "./modelManage";
+import SystemManage from "./systemManage";
 Vue.use(VueRouter);
 
 const routes = [
@@ -29,7 +40,7 @@ const routes = [
 	  path: "/saylittle",
 	  name: "saylittle",
 	  meta: {
-	    title: "留言",
+	    title: "微语",
 	  },
 	  components: {
 	    blank: resolve => require(["@/views/home/Saylittle.vue"], resolve)
@@ -63,20 +74,25 @@ const routes = [
     name: "Dashboard",
     redirect: "/home",
     meta: {
-      title: "首页"
+      title: "后台管理"
     },
     children: [
       {
         path: "home",
         name: "DashboardHome",
         meta: {
-          title: "个人中心"
-        },
-        component: resolve => require(["@/views/home/Index.vue"], resolve)
+          title: "管理首页"
+				},
+        component: resolve => require(["@/views/dashboard/Index.vue"], resolve)
+				
+        // component: resolve => require(["@/views/home/Index.vue"], resolve)
       }
     ]
   },
-  ArticleManage,
+	ArticleManage,
+	EditBlogManage,
+	ModelManage,
+	SystemManage
 ];
 
 const originalPush = VueRouter.prototype.push;
