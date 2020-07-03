@@ -8,7 +8,11 @@
  */ 
 export default {
   name:"系统管理",
+<<<<<<< HEAD
   icon:"el-icon-setting",
+=======
+  icon:"",
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
   children:{
     // 修改密码
     modifyPasswordCardList:{

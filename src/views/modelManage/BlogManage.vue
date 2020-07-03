@@ -7,6 +7,7 @@
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\BlogManage.vue
 --> 
 <template>
+<<<<<<< HEAD
   <div >
  		<el-table :data="blogData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%;height: 450px;text-align: center;" :header-cell-style="{'text-align':'center'}"
           :cell-style="{'text-align':'center'}">
@@ -103,3 +104,19 @@
    },
  };
  </script>
+=======
+  <div>
+  这里需要写页面
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012

@@ -8,7 +8,14 @@
         <i class="fa fa-arrows-alt"></i>
       </span>
       <!--其实个人觉得这级el-dropdown可以不要。————来自zq的吐槽 -->
+<<<<<<< HEAD
   <!--    <el-dropdown>
+=======
+      <el-dropdown>
+        <span class="body-top-btn">
+          <i class="el-icon-setting"></i>
+        </span> 
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
         <el-dropdown-menu slot="dropdown">
           <div style="padding: 10px 20px;text-align: center;">
             <el-button-group>
@@ -23,7 +30,17 @@
             </el-button-group>
           </div>
         </el-dropdown-menu>
+<<<<<<< HEAD
       </el-dropdown> -->
+=======
+      </el-dropdown>
+      <span class="body-top-btn">
+      <!-- 这个铃铛标志也有点鸡肋 看到红点我就想点 想消掉欸。————来自zq的吐槽-->
+        <el-badge is-dot class="badge">
+          <i class="el-icon-bell"></i>
+        </el-badge>
+      </span>
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
       <el-dropdown>
         <span class="body-top-btn">
         <!-- Tips: 还是要想办法动态生成username-->

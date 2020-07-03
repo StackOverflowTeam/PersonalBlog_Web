@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
   <div>
     <ToolBar>
@@ -38,10 +39,25 @@
 			:total="7">
   </el-pagination>
    </div>
+=======
+<!--
+ * @Author: Zhang Qing
+ * @Date: 2020-07-03 08:15:07
+ * @LastEditTime: 2020-07-03 11:23:16
+ * @LastEditors: your name
+ * @Description: 友情链接管理页面
+ * @FilePath: \PersonalBlog_Web\src\views\modelManage\tagRelation.vue
+--> 
+<template>
+  <div>
+  这里需要写页面
+  </div>
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
    data() {
      return {
  	  pagesize: 6,//每页显示的数据
@@ -134,3 +150,12 @@ export default {
  };
  </script>
 
+=======
+
+}
+</script>
+
+<style>
+
+</style>
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012

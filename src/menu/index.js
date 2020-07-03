@@ -17,7 +17,11 @@ import editBlogManage from "./editBlogManage.js";
  * @type {{name: string, path: string, icon: string}}
  */
 let home = {
+<<<<<<< HEAD
   name: "博客管理",
+=======
+  name: "后台管理",
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
   path: "/",
   permissionsKey: "",
   icon: "fa fa-tachometer"

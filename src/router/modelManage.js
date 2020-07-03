@@ -31,7 +31,11 @@ export default {
       meta: {
         title: '评论管理'
       },
+<<<<<<< HEAD
       component: resolve => require(["@/views/modelManage/CommentManage.vue"],resolve)
+=======
+      component: resolve => require(["@/views/modelManage/BlogManage.vue"],resolve)
+>>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
       // require里的路径是页面的路径
     },
     {
