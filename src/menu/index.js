@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-02 17:24:07
- * @LastEditTime: 2020-07-02 23:13:52
+ * @LastEditTime: 2020-07-04 09:19:39
  * @LastEditors: your name
  * @Description: 侧边栏
  * @FilePath: \PersonalBlog_Web\src\menu\index.js
@@ -17,11 +17,7 @@ import editBlogManage from "./editBlogManage.js";
  * @type {{name: string, path: string, icon: string}}
  */
 let home = {
-<<<<<<< HEAD
-  name: "博客管理",
-=======
   name: "后台管理",
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
   path: "/",
   permissionsKey: "",
   icon: "fa fa-tachometer"

@@ -14,11 +14,7 @@
 		<div>
 			<span style="margin-right: 50px;float: right;">欢迎来到
 		<!--	<a href="http://localhost:8080/#/home" style="font-size:20px ;"> -->
-<<<<<<< HEAD
 		<a href="http://localhost:8080/#/home" target="_self" style="font-size:20px ;">
-=======
-		<a href="http://localhost:9000/#/home" target="_self" style="font-size:20px ;">
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
 			{{personname}} </a>的博客~</span>	
 		</div>
 		<div class="main" style="padding-top: 20px;">

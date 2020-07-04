@@ -2,7 +2,7 @@
  * @Author: Zhang Qing
  * @Date: 2020-07-03 00:33:58
 <<<<<<< HEAD
- * @LastEditTime: 2020-07-03 00:39:19
+ * @LastEditTime: 2020-07-04 09:29:10
 =======
  * @LastEditTime: 2020-07-03 21:55:28
 >>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
@@ -12,9 +12,6 @@
 --> 
 <template>
   <div>
-<<<<<<< HEAD
-  
-=======
   <el-form :model="form">
   <el-card style="border-radius: 0">
       <div slot="header" style="text-align: center;">
@@ -24,20 +21,11 @@
       <el-input v-model="" placeholder=""></el-input>-->
     </el-card>
   </el-form>
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
   </div>
 </template>
 
 <script>
 export default {
-<<<<<<< HEAD
-
-}
-</script>
-
-<style>
-
-=======
   data() {
     return {
       form:{
@@ -69,5 +57,4 @@ export default {
 .box-card {
   width: 480px;
 }
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
 </style>

@@ -1,13 +1,12 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-03 11:23:37
+ * @LastEditTime: 2020-07-04 09:33:39
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\BlogManage.vue
 --> 
 <template>
-<<<<<<< HEAD
   <div >
  		<el-table :data="blogData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%;height: 450px;text-align: center;" :header-cell-style="{'text-align':'center'}"
           :cell-style="{'text-align':'center'}">
@@ -104,19 +103,3 @@
    },
  };
  </script>
-=======
-  <div>
-  这里需要写页面
-  </div>
-</template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012

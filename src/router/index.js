@@ -2,7 +2,7 @@
  * @Author: Zhang Qing
  * @Date: 2020-07-02 17:24:07
 <<<<<<< HEAD
- * @LastEditTime: 2020-07-03 11:09:41
+ * @LastEditTime: 2020-07-04 09:23:57
 =======
  * @LastEditTime: 2020-07-03 20:42:58
 >>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
@@ -90,11 +90,7 @@ const routes = [
         component: resolve => require(["@/views/dashboard/Index.vue"], resolve)
 				
         // component: resolve => require(["@/views/home/Index.vue"], resolve)
-<<<<<<< HEAD
-      }
-=======
 			},
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
     ]
   },
 	ArticleManage,
