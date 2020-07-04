@@ -17,7 +17,10 @@
 					  </template>
 					</el-table-column>
 			  <el-table-column prop="statue" label="状态">
-				 
+				 <template slot-scope="s">
+				 	<div v-if="s.row.statue == 1" style="color: green;">成功</div>
+				 	<div v-if="s.row.statue == 2" style="color: red;">待发布</div>
+				   </template>
 			  </el-table-column>
 			  <el-table-column prop="watchnum" label="浏览量">
 				   
@@ -53,7 +56,7 @@
  		  {
  			title:'Spring教程系列',
  		  	url:sy1,
-			statue:'成功',
+			statue:1,
 			watchnum:100,
 			sort:'随笔',
  		  	date:'2019-01-11',
@@ -61,7 +64,7 @@
  		{
 			title:'Spring教程系列',
 			url:sy2,
-			statue:'待发布',
+			statue:2,
 			watchnum:0,
 			sort:'随笔',
  			date:'2019-01-11',
@@ -69,7 +72,7 @@
 		{
 			title:'Spring教程系列',
 			url:sy3,
-			statue:'成功',
+			statue:2,
 			watchnum:100,
 			sort:'日记',
 			date:'2019-01-11',
@@ -77,7 +80,7 @@
 		{
 			title:'Spring教程系列',
 			url:sy4,
-			statue:'待发布',
+			statue:1,
 			watchnum:0,
 			sort:'随笔',
 			date:'2019-01-11',
@@ -85,7 +88,7 @@
 		{
 			title:'Spring教程系列',
 			url:sy5,
-			statue:'成功',
+			statue:1,
 			watchnum:100,
 			sort:'随笔',
 			date:'2019-01-11',

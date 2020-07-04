@@ -7,7 +7,7 @@
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\CommentManage.vue
 --> 
 <template>
-  <div class="nav">
+  <div >
  		<el-table :data="blogData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%;height: 500px;" :header-cell-style="{'text-align':'center'}"
           :cell-style="{'text-align':'center'}">
 			  <el-table-column prop="title" label="评论内容" >
@@ -25,7 +25,10 @@
 			  					
 			  </el-table-column>
 			  <el-table-column prop="statue" label="状态">
-				 
+					<template slot-scope="s">
+						<div v-if="s.row.statue == 1" style="color: green;">已审核</div>
+						<div v-if="s.row.statue == 2" style="color: orangered;">待审核</div>
+					 </template>
 			  </el-table-column>
 			  <el-table-column prop="content" label="回复内容">
 			  </el-table-column>
@@ -60,7 +63,7 @@
 			date:'2019-01-11 21:30',
  		  	url:person1,
 			person:'小红',
-			statue:'已审核',
+			statue:1,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
  		  	
@@ -69,7 +72,7 @@
 			date:'2019-01-11 21:30',
 			url:person2,
 			person:'小红',
-			statue:'已审核',
+			statue:1,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
  			
@@ -79,7 +82,7 @@
 			url:person3,
 			person:'小红',
 			name:'abab',
-			statue:'待审核',
+			statue:2,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
 			
@@ -88,7 +91,7 @@
 			date:'2019-01-11 21:30',
 			url:person4,
 			person:'小红',
-			statue:'已审核',
+			statue:1,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
 	
@@ -97,7 +100,7 @@
 			date:'2019-01-11 21:30',
 			url:person5,
 			person:'小红',
-			statue:'待审核',
+			statue:2,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
 			
@@ -106,7 +109,7 @@
 			date:'2019-01-11 21:30',
 			url:person6,
 			person:'小红',
-			statue:'已审核',
+			statue:1,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
 			
@@ -115,7 +118,7 @@
 			date:'2019-01-11 21:30',
 			url:person7,
 			person:'小红',
-			statue:'待审核',
+			statue:2,
 			personpost:'1234567880@qq.com',
 			content:'阿巴阿巴阿巴',
 			

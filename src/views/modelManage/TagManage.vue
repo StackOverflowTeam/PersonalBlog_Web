@@ -1,23 +1,25 @@
 <template>
   <div>
     <ToolBar>
-      <div slot-scope="s">
-        <el-button type="success" size="small" @click="add()"
-          >添加</el-button
-        >
-		<el-button type="danger" size="small" @click="removeItem(s.row)"
-		  >删除</el-button
-		>
-      </div>
+        <el-button type="success" size="small" @click="showEditDialog = true"
+          >添加</el-button>
+		
     </ToolBar>
   <el-table :data="blogData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%;height: 450px;" :header-cell-style="{'text-align':'center'}"
     :cell-style="{'text-align':'center'}">
-  	  <el-table-column type="selection" width="40px"  v-model="checked" @click="handleSelectionChange">
+  <!-- 	  <el-table-column type="selection" width="40px"  v-model="checked" @click="handleSelectionChange">
   		   <el-checkbox ></el-checkbox>
-  	  </el-table-column>
+  	  </el-table-column> -->
   	  <el-table-column prop="title" label="标签名称" >
   	  </el-table-column>
   	  <el-table-column prop="date" label="添加时间"></el-table-column>
+	   <el-table-column prop="" label="操作">
+		   <template slot-scope="s">
+		 <el-button type="danger" size="small" @click="removeItem(s.row)"
+		   >删除</el-button>
+		     </template>	
+		
+	   </el-table-column>
   </el-table>
   <el-pagination
    			layout="prev, pager, next"
@@ -27,17 +29,22 @@
    			:page-size="pagesize"
 			:total="10">
   </el-pagination>
+  
+  <Edit :showEditDialog="showEditDialog" @close="showEditDialog = false" />
+  
    </div>
 </template>
 
 <script>
+	import Edit from "./TagEdit.vue";
 export default {
    data() {
      return {
  	  pagesize: 8,//每页显示的数据
  	  currpage: 1,//默认为第一页
 	  currentSelectItem:[],
-	  checked:false,
+	  // checked:false,
+	  showEditDialog: false,
  	  blogData: [
  		  {
 			title:'实战教程',
@@ -138,6 +145,7 @@ export default {
 			this.currentSelectItem = row;
 		},
    },
+       components: { Edit }
  };
  </script>
 

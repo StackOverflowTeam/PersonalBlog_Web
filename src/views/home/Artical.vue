@@ -1,7 +1,7 @@
 <template>
   <div>
 	  <div class="header-botton">
-		  <img src="../../assets/images/banner.jpg" height="400px"  style="margin: 0 auto;"/>
+		  <img src="../../assets/images/banner.jpg" height="400px" width="150%" style="margin: 0 auto;"/>
 		  <div style="width: 130%;position: absolute;left:10px; top:10px">
 			  <span style="float: left;margin-top: 60px;margin-left: 50px;">
 				<p style="font-size: 60px;line-height: 30px;"> MY  </p>
@@ -18,7 +18,7 @@
 			   <div style="height:1300px;margin-top: 30px;">
 					  <div style="width: 40%;float: left;">
 						  <div  id="a" style="font-size: 14px;margin-left: 30%;margin-top: 30px;float: right;">
-							  <a href="#">设计文章 </a> |
+							  <a href="#" style="color: orangered;">设计文章 </a> |
 							  <a href="#">前端文章 </a> |
 							  <a href="#">旅游杂记 </a>
 						  </div>
@@ -90,14 +90,8 @@ export default {
 </script>
 <style lang="scss">
 .header-botton {
-	    height: 400px;
-	    width: 94%;
 	    float: left;
-	    margin-left:100px;
-	position: relative;
-		// width: 98%;
-		// float: left;
-		// margin-left: 12px;
+		position: relative;
 		color: white;
 }
 

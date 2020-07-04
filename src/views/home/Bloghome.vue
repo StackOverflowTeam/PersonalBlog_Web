@@ -5,11 +5,11 @@
 		</div>
 		<ul class="topNav">
 			<li :class="[showHot==0?'active':'']" @click="showHot=0">文章</li>
-			<li :class="[showHot==1?'active':'']" @click="showHot=1">微语</li>
+			<!-- <li :class="[showHot==1?'active':'']" @click="showHot=1">微语</li> -->
 			<li :class="[showHot==2?'active':'']" @click="showHot=2">留言</li>
 			<li :class="[showHot==3?'active':'']" @click="showHot=3">相册</li>
 			<!-- href="http://localhost:8080/#/home" -->
-			<li ><a  style="color: orangered;line-height: 48px;">个人主页</a></li>
+			<li ><a  style="color: black;line-height: 48px;" @click="bloghome">博客管理</a></li>
 		</ul>
 		<div>
 			<span style="margin-right: 50px;float: right;">欢迎来到
@@ -19,7 +19,7 @@
 		</div>
 		<div class="main" style="padding-top: 20px;">
 			<artical v-show="showHot==0"></artical>
-			<saylittle v-show="showHot==1"></saylittle>
+			<!-- <saylittle v-show="showHot==1"></saylittle> -->
 			<message v-show="showHot==2"></message>
 			<photo v-show="showHot==3"></photo>
 		</div>
@@ -45,14 +45,14 @@
 
 <script>
 	import artical from '@/views/home/Artical'
-	import saylittle from '@/views/home/Saylittle'
+	// import saylittle from '@/views/home/Saylittle'
 	import  message from '@/views/home/Massage'
 	import  photo   from  '@/views/home/Photo'
 	export default {
 		name: "index",
-		components: {
+		components:{
 			artical,
-			saylittle,
+			// saylittle,
 			message,
 			photo
 		},
@@ -60,7 +60,12 @@
 			return {
 				num:"1234567890",
 				personname: "小明",
-				showHot: 1
+				showHot: 0
+			}
+		},
+		methods:{
+			bloghome(){
+				this.$router.replace("/home");
 			}
 		}
 	};
