@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-04 09:33:39
+ * @LastEditTime: 2020-07-04 10:38:58
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\BlogManage.vue
@@ -42,10 +42,10 @@
  
  <script>
   import sy1 from '@/assets/images/sy_img1.jpg'
-  import sy2 from '@/assets/images/sy_img2.jpg'
-  import sy3 from '@/assets/images/sy_img3.jpg'
-  import sy4 from '@/assets/images/sy_img4.jpg'
-  import sy5 from '@/assets/images/sy_img5.jpg'
+  // import sy2 from '@/assets/images/sy_img2.jpg'
+  // import sy3 from '@/assets/images/sy_img3.jpg'
+  // import sy4 from '@/assets/images/sy_img4.jpg'
+  // import sy5 from '@/assets/images/sy_img5.jpg'
   
  export default {
    data() {
@@ -61,6 +61,7 @@
 			sort:'随笔',
  		  	date:'2019-01-11',
  		  },
+<<<<<<< HEAD
  		{
 			title:'Spring教程系列',
 			url:sy2,
@@ -93,6 +94,8 @@
 			sort:'随笔',
 			date:'2019-01-11',
 		},
+=======
+>>>>>>> 0e1e9916f85f438a8bda3fcf7da543dc25a809d3
  	  ],
      };
    },
