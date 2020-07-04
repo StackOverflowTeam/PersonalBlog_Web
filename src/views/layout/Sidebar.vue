@@ -29,7 +29,8 @@
               :key="menuChildren_k"
               :index="menuChildren_v.path"
             >
-              <i class="is-children fa fa-circle-o"></i>
+            <i :class="menuChildren_v.icon"></i>
+         <!--     <i class="is-children fa fa-circle-o"></i> -->
               <span slot="title">{{ menuChildren_v.name }}</span>
             </el-menu-item>
           </el-submenu>

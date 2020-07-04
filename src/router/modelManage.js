@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-03 09:04:57
- * @LastEditTime: 2020-07-04 09:24:29
+ * @LastEditTime: 2020-07-04 21:34:15
  * @LastEditors: your name
  * @Description: 模块管理路由配置
  * @FilePath: \PersonalBlog_Web\src\router\modelManage.js
@@ -20,7 +20,7 @@ export default {
       path: '/model_manage/blog_manage',
       name: 'BlogManage',
       meta: {
-        title: '博客管理'
+        title: '文章管理'
       },
       component: resolve => require(["@/views/modelManage/BlogManage.vue"],resolve)
       // require里的路径是页面的路径

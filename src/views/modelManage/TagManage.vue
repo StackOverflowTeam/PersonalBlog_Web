@@ -1,151 +1,105 @@
 <template>
   <div>
     <ToolBar>
-        <el-button type="success" size="small" @click="showEditDialog = true"
-          >添加</el-button>
-		
+      <el-button type="success" size="small" @click="showEditDialog = true">添加</el-button>
     </ToolBar>
-  <el-table :data="blogData.slice((currpage-1)*pagesize,currpage*pagesize)" border style="width: 100%;height: 450px;" :header-cell-style="{'text-align':'center'}"
-    :cell-style="{'text-align':'center'}">
-  <!-- 	  <el-table-column type="selection" width="40px"  v-model="checked" @click="handleSelectionChange">
+    <el-table
+      :data="data"
+      border
+      style="width: 100%;height: 450px;"
+      :header-cell-style="{'text-align':'center'}"
+      :cell-style="{'text-align':'center'}"
+    >
+      <!-- 	  <el-table-column type="selection" width="40px"  v-model="checked" @click="handleSelectionChange">
   		   <el-checkbox ></el-checkbox>
-  	  </el-table-column> -->
-  	  <el-table-column prop="title" label="标签名称" >
-  	  </el-table-column>
-  	  <el-table-column prop="date" label="添加时间"></el-table-column>
-	   <el-table-column prop="" label="操作">
-		   <template slot-scope="s">
-		 <el-button type="danger" size="small" @click="removeItem(s.row)"
-		   >删除</el-button>
-		     </template>	
-		
-	   </el-table-column>
-  </el-table>
-  <el-pagination
-   			layout="prev, pager, next"
-   			@current-change="currentChange"
-   			@size-change="handleSizeChange"
-			:current-page="currpage"
-   			:page-size="pagesize"
-			:total="10">
-  </el-pagination>
-  
-  <Edit :showEditDialog="showEditDialog" @close="showEditDialog = false" />
-  
-   </div>
+      </el-table-column>-->
+      <el-table-column prop="tagName" label="标签名称"></el-table-column>
+      <el-table-column prop="createTime" label="添加时间"></el-table-column>
+      <el-table-column prop label="操作">
+        <template slot-scope="s">
+          <el-button type="danger" size="small" @click="removeItem(s.row)">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-pagination
+      layout="prev, pager, next"
+      @current-change="currentChange"
+      :page-size="pagesize"
+      :total="total"
+    ></el-pagination>
+
+    <Edit :showEditDialog="showEditDialog" @close="showEditDialog = false" />
+  </div>
 </template>
 
 <script>
-	import Edit from "./TagEdit.vue";
+import Edit from "./TagEdit.vue";
+
+import { tagList } from "@/api/modelManage/tag";
 export default {
-   data() {
-     return {
- 	  pagesize: 8,//每页显示的数据
- 	  currpage: 1,//默认为第一页
-	  currentSelectItem:[],
-	  // checked:false,
-	  showEditDialog: false,
- 	  blogData: [
- 		  {
-			title:'实战教程',
-			date:'2019-01-11 21:30',
-			status:'0'
- 		  },
- 		{
-			title:'实战教程',
-			date:'2019-01-11 21:30',
-			status:'0'
- 		},
-		{
-			title:'入门教程',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		},
-		{
-			title:'目录',
-			date:'2019-01-11 21:30',
-			status:'0'
-		}
- 	  ],
-     };
-   },
-   methods: {
-	   removeItem(row) {
-	     this.$confirm("确定删除?", "提示", {
-	       confirmButtonText: "确定",
-	       cancelButtonText: "取消",
-	       type: "warning"
-	     })
-	       .then(() => {
-	         row.d = 0;
-	         // updateStatus({ id: row.id})
-	         //   .then(r => {
-	         //     this.$message({
-	         //       type: "success",
-	         //       message: "操作成功!"
-	         //     });
-	         //     this.refresh();
-	         //   })
-	         //   .catch(() => {});
-	       })
-	       .catch(() => {});
-	   },
- 	currentChange(currentPage){
- 	  this.currpage = currentPage;
- 	},
- 	 handleSizeChange(size) {
- 			this.pagesize = size;
- 		},
-		 handleSelectionChange (row) {
-			this.blogData.forEach(item => {
-			  if (item.status != row.status) {
-				item.status = this.checked;
-			  }
-			})
-			this.currentSelectItem = row;
-		},
-   },
-       components: { Edit }
- };
- </script>
+  data() {
+    return {
+      pagesize: 7, //每页显示的数据
+      currpage: 1, //默认为第一页
+      total: 0,
+      currentSelectItem: [],
+      // checked:false,
+      showEditDialog: false,
+      data: []
+    };
+  },
+  created() {
+    this.initData();
+  },
+  methods: {
+    removeItem(row) {
+      this.$confirm("确定删除?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          row.d = 0;
+          // updateStatus({ id: row.id})
+          //   .then(r => {
+          //     this.$message({
+          //       type: "success",
+          //       message: "操作成功!"
+          //     });
+          //     this.refresh();
+          //   })
+          //   .catch(() => {});
+        })
+        .catch(() => {});
+    },
+    currentChange(currentPage) {
+      this.currpage = currentPage;
+      this.initData();
+    },
+    handleSizeChange(size) {
+      this.pagesize = size;
+    },
+    handleSelectionChange(row) {
+      this.blogData.forEach(item => {
+        if (item.status != row.status) {
+          item.status = this.checked;
+        }
+      });
+      this.currentSelectItem = row;
+    },
+		 initData() {
+      tagList({
+        page: this.currpage, //page>0
+        limit: this.pagesize
+      })
+        .then(result => {
+          this.data = result.list;
+          this.total = result.totalPage;
+        })
+        .catch(() => {});
+    },
+  },
+  components: { Edit }
+};
+</script>
 

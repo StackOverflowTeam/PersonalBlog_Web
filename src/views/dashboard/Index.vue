@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 00:09:59
- * @LastEditTime: 2020-07-04 09:28:38
+ * @LastEditTime: 2020-07-04 23:36:28
  * @LastEditors: your name
  * @Description: 后台管理主页（zq版）
  * @FilePath: \PersonalBlog_Web\src\views\dashboard\Index.vue
@@ -90,6 +90,12 @@
 </template>
 
 <script>
+import { blogCount } from "@/api/modelManage/blog";
+import { categoryCount } from "@/api/modelManage/category";
+import { commentCount } from "@/api/modelManage/comment";
+import { tagCount } from "@/api/modelManage/tag";
+import { linkCount } from "@/api/modelManage/tagRelation";
+
 export default {
   data() {
     return {
@@ -102,33 +108,37 @@ export default {
   },
   created() {
     // 随着页面一起加载数据
-    // this.initData();
+    blogCount()
+        .then(result => {
+          this.blogNum = result;
+        })
+        .catch(() => {});
+// !!!!!
+      categoryCount()
+        .then(result => {
+          this.categoryNum = result;
+        })
+        .catch(() => {});
+// !!!!!
+      commentCount()
+        .then(result => {
+          this.commentNum = result;
+        })
+        .catch(() => {});
+
+      tagCount()
+        .then(result => {
+          this.tagNum = result;
+        })
+        .catch(() => {});
+        
+      linkCount()
+        .then(result => {
+          this.tagRelation = result;
+        })
+        .catch(() => {});
   },
   methods: {
-    // initData(){
-    //   blogNum()
-    //   .then((result) => {
-    //     console.log(result);
-    //     this.blogNum = result;
-    //   }).catch(() => {
-    //   });
-    //   commentNum() .then((result) => {
-    //     this.commentNum = result;
-    //   }).catch(() => {
-    //   });
-    //   categoryNum().then((result) => {
-    //     this.categoryNum = result;
-    //   }).catch(() => {
-    //   });
-    //   tagNum().then((result) => {
-    //     console.log(result);
-    //     this.tagNum = result;
-    //   }).catch(() => {
-    //   });
-    //   tagRelation().then((r) =>{
-    //     this.tagRelation = r;
-    //   })
-    // }
   }
 };
 </script>
