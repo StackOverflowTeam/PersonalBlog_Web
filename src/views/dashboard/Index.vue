@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 00:09:59
- * @LastEditTime: 2020-07-04 23:36:28
+ * @LastEditTime: 2020-07-05 08:17:48
  * @LastEditors: your name
  * @Description: 后台管理主页（zq版）
  * @FilePath: \PersonalBlog_Web\src\views\dashboard\Index.vue
@@ -91,8 +91,8 @@
 
 <script>
 import { blogCount } from "@/api/modelManage/blog";
-import { categoryCount } from "@/api/modelManage/category";
-import { commentCount } from "@/api/modelManage/comment";
+import { categoryList } from "@/api/modelManage/category";
+import { commentList } from "@/api/modelManage/comment";
 import { tagCount } from "@/api/modelManage/tag";
 import { linkCount } from "@/api/modelManage/tagRelation";
 
@@ -109,37 +109,41 @@ export default {
   created() {
     // 随着页面一起加载数据
     blogCount()
-        .then(result => {
-          this.blogNum = result;
-        })
-        .catch(() => {});
-// !!!!!
-      categoryCount()
-        .then(result => {
-          this.categoryNum = result;
-        })
-        .catch(() => {});
-// !!!!!
-      commentCount()
-        .then(result => {
-          this.commentNum = result;
-        })
-        .catch(() => {});
+      .then(result => {
+        this.blogNum = result;
+      })
+      .catch(() => {});
 
-      tagCount()
-        .then(result => {
-          this.tagNum = result;
-        })
-        .catch(() => {});
-        
-      linkCount()
-        .then(result => {
-          this.tagRelation = result;
-        })
-        .catch(() => {});
+    categoryList({
+      page: 1, //page>0
+      limit: 7
+    })
+      .then(result => {
+        this.categoryNum = result.totalCount;
+      })
+      .catch(() => {});
+
+    commentList({
+      page: 1, //page>0
+      limit: 7})
+      .then(result => {
+        this.commentNum = result.totalCount;
+      })
+      .catch(() => {});
+
+    tagCount()
+      .then(result => {
+        this.tagNum = result;
+      })
+      .catch(() => {});
+
+    linkCount()
+      .then(result => {
+        this.tagRelation = result;
+      })
+      .catch(() => {});
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>
 

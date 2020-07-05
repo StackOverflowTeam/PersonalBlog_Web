@@ -30,7 +30,7 @@
       </el-table-column>
     </el-table>
     <el-pagination
-      layout="prev, pager, next"
+      layout="prev, pager, next, total"
       @current-change="currentChange"
       :page-size="pagesize"
       :total="total"
@@ -95,7 +95,7 @@ export default {
       })
         .then(result => {
           this.data = result.list;
-          this.total = result.totalPage;
+          this.total = result.totalCount;
         })
         .catch(() => {});
     }

@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-03 20:19:49
- * @LastEditTime: 2020-07-04 23:39:57
+ * @LastEditTime: 2020-07-05 08:18:22
  * @LastEditors: your name
  * @Description: 分类数据获取的后端接口配置
  * @FilePath: \PersonalBlog_Web\src\api\modelManage\category.js
@@ -17,7 +17,7 @@ export function categoryList(params) {
     params: params
   })
 }
-//获取数量
+//获取数量    有点问题
 export function categoryCount(params) {
   return request({
     url: "/categories/count",

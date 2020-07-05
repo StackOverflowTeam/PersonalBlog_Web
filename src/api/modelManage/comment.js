@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-03 20:17:25
- * @LastEditTime: 2020-07-04 23:23:54
+ * @LastEditTime: 2020-07-05 08:18:34
  * @LastEditors: your name
  * @Description: 评论的接口配置
  * @FilePath: \PersonalBlog_Web\src\api\modelManage\comment.js
@@ -15,7 +15,7 @@ export function commentList(params) {
     params: params
   })
 }
-
+//  获取数量有点问题
 export function commentCount(params) {
   return request({
     url: "/comments/count",

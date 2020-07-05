@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-05 00:00:05
+ * @LastEditTime: 2020-07-05 08:59:43
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\CommentManage.vue
@@ -36,7 +36,7 @@
     </el-table>
 
     <el-pagination
-      layout="prev, pager, next"
+      layout="prev, pager, next, total"
       @current-change="currentChange"
       :page-size="pagesize"
       :total="total"
@@ -49,7 +49,7 @@ import { commentList } from "@/api/modelManage/comment";
 export default {
   data() {
     return {
-      pagesize: 3, //每页显示的数据
+      pagesize: 4, //每页显示的数据
       currpage: 1, //默认为第一页
       total: 0,
      data: []
@@ -70,7 +70,7 @@ export default {
       })
         .then(result => {
           this.data = result.list;
-          this.total = result.totalPage;
+         this.total = result.totalCount;
         })
         .catch(() => {});
     }

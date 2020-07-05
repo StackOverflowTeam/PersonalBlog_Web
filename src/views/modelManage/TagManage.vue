@@ -22,8 +22,9 @@
       </el-table-column>
     </el-table>
     <el-pagination
-      layout="prev, pager, next"
+      layout="prev, pager, next, total"
       @current-change="currentChange"
+      :current-page.sync="currpage"
       :page-size="pagesize"
       :total="total"
     ></el-pagination>
@@ -76,9 +77,9 @@ export default {
       this.currpage = currentPage;
       this.initData();
     },
-    handleSizeChange(size) {
-      this.pagesize = size;
-    },
+    // handleSizeChange(size) {
+    //   this.pagesize = size;
+    // },
     handleSelectionChange(row) {
       this.blogData.forEach(item => {
         if (item.status != row.status) {
@@ -94,7 +95,8 @@ export default {
       })
         .then(result => {
           this.data = result.list;
-          this.total = result.totalPage;
+          this.total = result.totalCount;
+          // console.log(this.total);
         })
         .catch(() => {});
     },

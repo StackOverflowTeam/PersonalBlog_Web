@@ -7,7 +7,7 @@
       <span class="body-top-btn" @click="screenFullToggle">
         <i class="fa fa-arrows-alt"></i>
       </span>
-  <!--    <el-dropdown>
+      <!--    <el-dropdown>
         <el-dropdown-menu slot="dropdown">
           <div style="padding: 10px 20px;text-align: center;">
             <el-button-group>
@@ -22,11 +22,11 @@
             </el-button-group>
           </div>
         </el-dropdown-menu>
-      </el-dropdown> -->
+      </el-dropdown>-->
       <el-dropdown>
         <span class="body-top-btn">
-        <!-- Tips: 还是要想办法动态生成username-->
-        <!-- 如果上面的标志删了后就会显得顶部有点空 可以考虑把这个二级标题拆开-->
+          <!-- Tips: 还是要想办法动态生成username-->
+          <!-- 如果上面的标志删了后就会显得顶部有点空 可以考虑把这个二级标题拆开-->
           {{ userName }}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+
 import ScreenFull from "screenfull";
 import { mapState } from "vuex";
 import Menu from "@/menu/index";
@@ -53,10 +54,17 @@ export default {
     return {
       menu: Menu,
       // 动态获取
-      userName: "小明"
+      userName: "Admin"
     };
   },
+  // created() {
+  //   this.initData();
+  // },
   methods: {
+    // 暂时先从登录接口中获取数据，但是更应该考虑session会话 
+    // initData() {
+    //   login()
+    // },
     hiddenSidebar() {
       this.$store.commit("HIDE_SIDEBAR_TOGGLE");
     },
@@ -69,7 +77,7 @@ export default {
             type: "warning"
           });
         });
-    },
+    }
   },
   computed: mapState(["system"])
 };

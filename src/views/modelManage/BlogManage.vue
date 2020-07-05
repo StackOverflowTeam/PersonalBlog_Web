@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-04 23:55:00
+ * @LastEditTime: 2020-07-05 09:01:10
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\BlogManage.vue
@@ -34,7 +34,7 @@
     </el-table>
 
     <el-pagination
-      layout="prev, pager, next"
+      layout="prev, pager, next, total"
       @current-change="currentChange"
       :page-size="pagesize"
       :total="total"
@@ -72,7 +72,7 @@ export default {
       })
         .then(result => {
           this.blogData = result.list;
-          this.total = result.totalPage;
+           this.total = result.totalCount;
         })
         .catch(() => {});
     }
