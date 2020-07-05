@@ -6,6 +6,7 @@
 		     <img src="../../assets/images/xc_img1.jpg" />
 		   </div>
 		   <div style="float: right;margin-right: 200px;margin-top:100px;line-height: 60px;">
+			 <!-- 时间  动态-->
 			   <p style="margin-bottom: 10px;color: orangered;">今日上传 2020/10/10</p>
 			   <p>观赏最美的土耳其的日</p>
 			</div>
@@ -14,6 +15,7 @@
 			  <div style="height:1300px;margin: 85px auto;width: 85%;">
 					<el-row :gutter="20" style="padding-left: 33px;margin-left: 25px;">
 						<!-- 一行三个（24）多的会自动换行 -->
+						<!--下面的图片需要动态获取-->
 						<el-col :span="8" style="line-height: 25px;margin-bottom: 20px;">
 							<img src="../../assets/images/xc_img3.jpg" style="width: 300px;" />
 							<p style="color: orangered;">2019-01-11</p>
@@ -79,6 +81,7 @@
 			   
 				
 	   </div>
+		 <!--分页  动态显示-->
 	<div class="block" style="margin-left: 36%;margin-top: 55px;width:20%;">
 			<span class="demonstration"></span>
 			<el-pagination

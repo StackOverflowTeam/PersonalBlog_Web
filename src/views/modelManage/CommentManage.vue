@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-05 08:59:43
+ * @LastEditTime: 2020-07-05 10:28:59
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\CommentManage.vue
@@ -16,13 +16,14 @@
       :cell-style="{'text-align':'center'}"
     >
       <el-table-column prop="commentBody" label="评论内容">
-        <el-button type="success" size="medium">查看</el-button>
+      <!--  <el-button type="success" size="medium">查看</el-button> -->
       </el-table-column>
       <el-table-column prop="commentCreateTime" label="评论时间"></el-table-column>
-      <el-table-column prop="commentator" label="评论人">
+      <el-table-column prop label="评论人">
         <template slot-scope="s">
-          <el-image style="width: 100px;" :src="s.row.url"></el-image>
-          <p>{{s.row.person}}</p>
+        <!--数据库里没有图-->
+        <!--  <el-image style="width: 100px;" :src="s.row.url"></el-image> -->
+          <p>{{s.row.commentator}}</p>
         </template>
       </el-table-column>
       <el-table-column prop="email" label="评论人邮箱"></el-table-column>

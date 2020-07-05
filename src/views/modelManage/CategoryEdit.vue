@@ -78,7 +78,7 @@ export default {
 		img:""//保存到数据库的图片名称
       },
       rules: {
-        ...FillerFieldRules(["sort"], Required),
+        ...FillerFieldRules(["sort","date","url"], Required),
       },
 	  // serverApiUrl:serverApiUrl,
 	  //  CatagoryData:[]

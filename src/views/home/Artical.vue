@@ -11,6 +11,7 @@
 				<span style="font-size: 15px;color: orangered;float: right;margin-top: 100px;margin-right: 100px;">
 					<p style="line-height: 80px;">访问量 : 1000</p>
 					<p>日志  : 1000</p>
+					<!--这级span里的两个数据要动态显示 -->
 				</span>
 		  </div>
 	  </div> 
@@ -18,6 +19,7 @@
 			   <div style="height:1300px;margin-top: 30px;">
 					  <div style="width: 40%;float: left;">
 						  <div  id="a" style="font-size: 14px;margin-left: 30%;margin-top: 30px;float: right;">
+							<!-- 获取文章分类列表-->
 							  <a href="#" style="color: orangered;">设计文章 </a> |
 							  <a href="#">前端文章 </a> |
 							  <a href="#">旅游杂记 </a>

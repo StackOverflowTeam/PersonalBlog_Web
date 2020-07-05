@@ -8,13 +8,13 @@
 			<!-- <li :class="[showHot==1?'active':'']" @click="showHot=1">微语</li> -->
 			<li :class="[showHot==2?'active':'']" @click="showHot=2">留言</li>
 			<li :class="[showHot==3?'active':'']" @click="showHot=3">相册</li>
-			<!-- href="http://localhost:8080/#/home" -->
-			<li ><a  style="color: black;line-height: 48px;" @click="bloghome">博客管理</a></li>
+			<!-- href="http://localhost:8080/#/home" @click="bloghome" -->
+			<li ><a @click="$router.push('/model_manage/blog_manage')" style="color: black;line-height: 48px;" >博客管理</a></li>
 		</ul>
 		<div>
 			<span style="margin-right: 50px;float: right;">欢迎来到
 		<!--	<a href="http://localhost:8080/#/home" style="font-size:20px ;"> -->
-		<a href="http://localhost:8080/#/home" target="_self" style="font-size:20px ;">
+		<a @click="$router.push('/home')" target="_self" style="font-size:20px ;">
 			{{personname}} </a>的博客~</span>	
 		</div>
 		<div class="main" style="padding-top: 20px;">
@@ -27,10 +27,12 @@
 			<hr>
 			   <div  style="height:260px;">
 				   <div style="height:120px;width: 30%;float: left;margin-left: 150px;margin-top: 100px;">
+					 <!--二维码-->
 					   <img  style="height: 120px;" src="../../assets/images/erweima.jpg" />
 				   </div>
 				   <div style="height:120px;width: 30%;float: right;margin-right: 100px;margin-top: 100px;">
-					   <img src="../../assets/images/down_img.jpg" style="float: left;height: 120px">
+					   <!--？？？？？-->
+						 <img src="../../assets/images/down_img.jpg" style="float: left;height: 120px">
 						   <div style="float: left;margin-left: 20px;margin-top: 30px;">
 								<p style="margin-bottom: 10px;">我的联系方式</p>
 								<p>微信 :   {{num}}</p>
