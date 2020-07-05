@@ -1,11 +1,4 @@
-<!--
- * @Author: Zhang Qing
- * @Date: 2020-07-02 17:24:07
- * @LastEditTime: 2020-07-02 23:26:25
- * @LastEditors: your name
- * @Description: 底边栏
- * @FilePath: \PersonalBlog_Web\src\views\layout\Footer.vue
---> 
+
 <template>
   <div class="footer">
     <div class="version">

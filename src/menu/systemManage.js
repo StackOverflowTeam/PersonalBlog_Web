@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-02 22:02:43
- * @LastEditTime: 2020-07-04 21:30:38
+ * @LastEditTime: 2020-07-05 16:36:59
  * @LastEditors: your name
  * @Description: 系统管理
  * @FilePath: \PersonalBlog_Web\src\menu\systemManage.js
@@ -20,7 +20,7 @@ export default {
     safetyRemoveCardList:{
       name:"安全退出",
       icon:"fa fa-power-off",
-      path:"/login"
+      path:"/logout" ////浏览器显示的uri
     }
   }
 }

@@ -1,3 +1,4 @@
+
 import Vue from "vue";
 import App from "./App.vue";
 
@@ -10,9 +11,11 @@ import store from "./store";
 import "@/utils/v-auth.js";
 import { getToken } from "@/utils/common";
 import "./components";
+import dateFormat from 'dateformat';
 
 Vue.config.productionTip = false;
 Vue.prototype.GlobalCfg = Config;
+Vue.prototype.$dateFormat = dateFormat
 Vue.use(elementUi);
 
 router.beforeEach((to, from, next) => {

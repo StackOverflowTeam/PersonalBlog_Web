@@ -1,11 +1,3 @@
-/*
- * @Author: Zhang Qing
- * @Date: 2020-07-02 17:38:24
- * @LastEditTime: 2020-07-02 17:44:20
- * @LastEditors: your name
- * @Description: 
- * @FilePath: \PersonalBlog_Web-1\src\utils\request.js
- */ 
 import Axios from "axios";
 import Config from "@/config/app";
 import { Notification, Loading } from "element-ui";

@@ -1,7 +1,7 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-03 20:19:49
- * @LastEditTime: 2020-07-05 08:18:22
+ * @LastEditTime: 2020-07-05 18:21:12
  * @LastEditors: your name
  * @Description: 分类数据获取的后端接口配置
  * @FilePath: \PersonalBlog_Web\src\api\modelManage\category.js
@@ -15,7 +15,7 @@ export function categoryList(params) {
     url: "/categories/list",
     methods: "get",
     params: params
-  })
+  });
 }
 //获取数量    有点问题
 export function categoryCount(params) {
@@ -23,15 +23,16 @@ export function categoryCount(params) {
     url: "/categories/count",
     methods: "post",
     data: params
-  })
+  });
 }
 //保存
 export function categorySave(params) {
+  console.log("参数"+params);
   return request({
     url: "/categories/save",
     methods: "post",
     data: params
-  })
+  });
 }
 //更新
 export function categoryUpdate(params) {
@@ -39,13 +40,14 @@ export function categoryUpdate(params) {
     url: "/categories/update",
     methods: "post",
     data: params
-  })
+  });
 }
 //删
 export function categoryDelte(params) {
+  console.log("参数"+params);
   return request({
-    url: "/categories/deldete",
+    url: "/categories/delete",
     methods: "post",
     data: params
-  })
+  });
 }

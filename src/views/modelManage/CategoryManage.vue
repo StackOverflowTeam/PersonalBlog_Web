@@ -24,7 +24,7 @@
       <el-table-column prop label="操作">
         <template slot-scope="s">
           <el-button type="warning" size="small" @click="editItem(s.row.id)">修改</el-button>
-          <el-button type="danger" size="small" @click="removeItem(s.row.id)">删除</el-button>
+          <el-button type="danger" size="small" @click="removeItem(s.row.categoryId)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { categoryList } from "@/api/modelManage/category";
+import { categoryList, categoryDelte } from "@/api/modelManage/category";
 import Edit from "./CategoryEdit.vue";
 export default {
   data() {
@@ -51,7 +51,8 @@ export default {
       currentSelectItem: [],
       // checked:false,
       showEditDialog: false,
-      data: []
+      data: [],
+      id: null
     };
   },
   created() {
@@ -65,10 +66,13 @@ export default {
       })
         .then(result => {
           this.data = result.list;
-           this.total = result.totalCount;
+          this.total = result.totalCount;
         })
         .catch(() => {});
     },
+    // refresh() {
+    //   this.initData();
+    // },
     removeItem(row) {
       this.$confirm("确定删除?", "提示", {
         confirmButtonText: "确定",
@@ -76,7 +80,17 @@ export default {
         type: "warning"
       })
         .then(() => {
-          row.d = 0;
+          console.log(row);
+          // console.log(row.categoryId);
+          categoryDelte({id:row})
+            .then(result => {
+              this.$message({
+                type: "success",
+                message: result.msg
+              });
+              this.initData();
+            })
+            .catch(() => {});
         })
         .catch(() => {});
     },
