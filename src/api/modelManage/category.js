@@ -1,12 +1,3 @@
-/*
- * @Author: Zhang Qing
- * @Date: 2020-07-03 20:19:49
- * @LastEditTime: 2020-07-05 18:21:12
- * @LastEditors: your name
- * @Description: 分类数据获取的后端接口配置
- * @FilePath: \PersonalBlog_Web\src\api\modelManage\category.js
- */
-
 import request from "@/utils/request.js";
 
 //获取整体信息
@@ -27,7 +18,7 @@ export function categoryCount(params) {
 }
 //保存
 export function categorySave(params) {
-  console.log("参数"+params);
+  console.log("参数" + params);
   return request({
     url: "/categories/save",
     methods: "post",
@@ -44,10 +35,12 @@ export function categoryUpdate(params) {
 }
 //删
 export function categoryDelte(params) {
-  console.log("参数"+params);
+  // 后端采用RequestBody注解 将参数转成json格式
+  console.log("参数" + JSON.stringify(params));
   return request({
     url: "/categories/delete",
-    methods: "post",
-    data: params
+    method: "post",
+    // data: JSON.stringify(params)
+    data:params
   });
 }

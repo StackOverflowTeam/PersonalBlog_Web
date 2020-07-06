@@ -26,7 +26,7 @@
         <el-input
           v-model="loginForm.login_verifyCode"
           placeholder="请填写验证码"
-          @keyup.enter.native="handleLogin"
+					@keyup.enter.native="login('loginForm')"
         ></el-input>
       </el-form-item>
 

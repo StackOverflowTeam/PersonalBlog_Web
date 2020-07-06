@@ -18,7 +18,9 @@
       <el-table-column prop label="操作">
         <template slot-scope="s">
           <el-button type="danger" size="small" @click="removeItem(s.row)">删除</el-button>
+          {{s.row.id}}
         </template>
+        
       </el-table-column>
     </el-table>
     <el-pagination
@@ -35,6 +37,7 @@
 
 <script>
 import Edit from "./TagEdit.vue";
+import { tagDelete } from "@/api/modelManage/tag";
 
 import { tagList } from "@/api/modelManage/tag";
 export default {
@@ -60,16 +63,15 @@ export default {
         type: "warning"
       })
         .then(() => {
-          row.d = 0;
-          // updateStatus({ id: row.id})
-          //   .then(r => {
-          //     this.$message({
-          //       type: "success",
-          //       message: "操作成功!"
-          //     });
-          //     this.refresh();
-          //   })
-          //   .catch(() => {});
+          console.log(row);
+          tagDelete({id:row.tagId}).then((r) => {
+             this.$message({
+            type: "success",
+            message: r.msg //对应后台的status
+          });
+          this.refresh();
+          }).catch(() => {
+          });
         })
         .catch(() => {});
     },
@@ -88,7 +90,7 @@ export default {
       });
       this.currentSelectItem = row;
     },
-		 initData() {
+    initData() {
       tagList({
         page: this.currpage, //page>0
         limit: this.pagesize
@@ -99,7 +101,7 @@ export default {
           // console.log(this.total);
         })
         .catch(() => {});
-    },
+    }
   },
   components: { Edit }
 };

@@ -31,7 +31,7 @@
           :show-file-list="false"
           :on-success="handleAvatarSuccess"
           :before-upload="beforeAvatarUpload"
-          :action="aaa"
+          :action="serverApiUrl"
         >
         <!--action要改  :action="serverApiUrl+'/upload/uploadGoodsImg'"-->
           <img v-if="forms.url" :src="forms.url" class="avatar" />
@@ -54,12 +54,13 @@ import {
   Required,
   FillerFieldRules
 } from "@/utils/validateRules";
-// import { serverApiUrl }from "@/config/apiUrl";
+import { serverApiUrl }from "@/config/apiUrl";
 
 import { fillerLeft } from "@/utils/common";
 import {  resetObject } from "@/utils/common";
 
 import { categorySave } from "@/api/modelManage/category";
+// import { categorySave } from "@/api/modelManage/category";
 
 export default {
   props: {
@@ -88,8 +89,8 @@ export default {
       },
       rules: {
         ...FillerFieldRules(["categoryName"], Required)
-      }
-      // serverApiUrl:serverApiUrl,
+      },
+      serverApiUrl:serverApiUrl,
       //  CatagoryData:[]
     };
   },
@@ -169,24 +170,20 @@ export default {
     },
 
     openDialog() {
-      this.title = "添加";
-      resetObject(this.forms);
-      this.$set(this.forms, "id", null);
-      this.$refs.editForms.resetFields();
-      // if(this.$parent.id != null){//修改
-      //     this.title="编辑商品";
+      if(this.$parent.id != null){//修改
+          this.title="修改";
       // getGoods({id:this.$parent.id })
       // 	.then(r=>{//获取商品类型列表
       //   this.FillerFormField(this.$parent.id ,r);
       //   this.forms.url = this.$parent.serverImageUrl+r.imgpath;
       //   this.$parent.id = null;
       //   }).catch(()=>{});
-      // // }else{//新增
-      //     this.title="添加商品";
-      // 	resetObject(this.forms);
-      // 	this.$set(this.forms, "id", null);
-      // 	this.$refs.editForms.resetFields();
-      // }
+      }else{//新增
+          this.title="添加";
+      	resetObject(this.forms);
+      	this.$set(this.forms, "id", null);
+      	this.$refs.editForms.resetFields();
+      }
     },
     FillerFormField(id, data) {
       //可以外部填充回写做编辑用，也可以请求详情接口填充表单
