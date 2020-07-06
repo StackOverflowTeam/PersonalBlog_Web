@@ -26,7 +26,7 @@
         <el-input
           v-model="loginForm.login_verifyCode"
           placeholder="请填写验证码"
-					@keyup.enter.native="login('loginForm')"
+          @keyup.enter.native="handleLogin"
         ></el-input>
       </el-form-item>
 
@@ -45,12 +45,6 @@
         </el-button>
       </el-form-item>
     </el-form>
-    <!-- 底部 -->
-    <!-- 	<div id="el-login-footer">
-		<span v-html="$StackOverflow组"/>
-		      <span> ⋅ </span>
-		      <a href="#" target="_blank">关于我们</a>
-    </div>-->
   </div>
 </template>
 
@@ -89,16 +83,20 @@ export default {
       //登陆验证
       this.$refs[loginForm].validate(valid => {
         if (valid) {
+			this.loading=true;
           login({
             userName: this.loginForm.login_user_name,
             password: this.loginForm.login_password,
-						verifyCode:this.loginForm.login_verifyCode
+			verifyCode:this.loginForm.login_verifyCode
           })
             .then(r => {
               console.log(r);
-              this.loading = true;
-              setToken("HJDF844GDFG5D8J7FGHFG5");
-              this.$router.push("/personhome");
+			  if(r!=null){
+				  this.loading = true;
+				  setToken("HJDF844GDFG5D8J7FGHFG5");
+				  this.$router.push("/personhome");
+			  }
+              
             })
             .catch(() => {});
         } else {

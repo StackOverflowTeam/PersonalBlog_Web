@@ -20,7 +20,7 @@ export default {
     safetyRemoveCardList:{
       name:"安全退出",
       icon:"fa fa-power-off",
-      path:"/logout" ////浏览器显示的uri
+      path:"/login" ////浏览器显示的uri
     }
   }
 }
