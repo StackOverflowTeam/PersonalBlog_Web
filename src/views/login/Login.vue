@@ -30,7 +30,7 @@
         ></el-input>
       </el-form-item>
 
-      <img :src="checkCode"/>
+      <img :src="checkCode" />
       <el-checkbox v-model="rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { setToken } from "@/utils/common";
+// import { setToken } from "@/utils/common";
 import { login } from "@/api/user/user";
 // import {  captcha } from "@/api/user/user";
 import { serverApiUrl } from "@/config/apiUrl";
@@ -62,7 +62,7 @@ export default {
         login_password: "",
         login_verifyCode: ""
       },
-      checkCode:serverApiUrl+"/admin/captcha",
+      checkCode: serverApiUrl + "/admin/captcha",
       rememberMe: false,
       loading: false,
       loginRules: {
@@ -83,20 +83,19 @@ export default {
       //登陆验证
       this.$refs[loginForm].validate(valid => {
         if (valid) {
-			this.loading=true;
+          this.loading = true;
           login({
             userName: this.loginForm.login_user_name,
             password: this.loginForm.login_password,
-			verifyCode:this.loginForm.login_verifyCode
+            verifyCode: this.loginForm.login_verifyCode
           })
             .then(r => {
               console.log(r);
-			  if(r!=null){
-				  this.loading = true;
-				  setToken("HJDF844GDFG5D8J7FGHFG5");
-				  this.$router.push("/personhome");
-			  }
-              
+              if (r != null) {
+                this.loading = true;
+                // setToken("HJDF844GDFG5D8J7FGHFG5");
+                this.$router.push("/personhome");
+              }
             })
             .catch(() => {});
         } else {
@@ -105,21 +104,7 @@ export default {
           return false;
         }
       });
-    },
-    // login()  {
-    // this.$refs.loginForm.validate(valid => {
-    //  if (valid) {
-    // 	    this.loading=true;
-    // 		if(this.loginForm.username=='admin'&&this.loginForm.password=='123'){
-    // 		  setToken("HJDF844GDFG5D8J7FGHFG5");
-    // 		  this.$router.push("/personhome");
-    // 		 }else{
-    // 			this.loading=false;
-    // 			this.$message('用户名或密码错误！！');
-    //    }
-    //  }
-    //   })
-    // }
+    }
   },
   mounted: function() {}
 };
