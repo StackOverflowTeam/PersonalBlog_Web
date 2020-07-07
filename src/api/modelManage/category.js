@@ -1,3 +1,11 @@
+/*
+ * @Author: Zhang Qing
+ * @Date: 2020-07-07 13:42:10
+ * @LastEditTime: 2020-07-07 13:46:16
+ * @LastEditors: your name
+ * @Description: 
+ * @FilePath: \PersonalBlog_Web\src\api\modelManage\category.js
+ */ 
 
 import request from "@/utils/request.js";
 
@@ -19,7 +27,7 @@ export function categoryCount(params) {
 }
 //保存
 export function categorySave(params) {
-  console.log("参数" + params);
+  console.log("参数"+params);
   return request({
     url: "/categories/save",
     methods: "post",

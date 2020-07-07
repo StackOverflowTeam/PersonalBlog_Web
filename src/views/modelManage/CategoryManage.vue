@@ -1,7 +1,7 @@
 <template>
   <div>
     <ToolBar>
-      <el-button type="success" size="small" @click="addCategory()">添加</el-button>
+      <el-button type="success" size="small" @click="showEditDialog = true">添加</el-button>
     </ToolBar>
     <el-table
       :data="data"
@@ -23,7 +23,7 @@
       <el-table-column prop="createTime" label="添加时间"></el-table-column>
       <el-table-column prop label="操作">
         <template slot-scope="s">
-          <el-button type="warning" size="small" @click="editItem(s.row.categoryId)">修改</el-button>
+          <el-button type="warning" size="small" @click="editItem(s.row.id)">修改</el-button>
           <el-button type="danger" size="small" @click="removeItem(s.row.categoryId)">删除</el-button>
         </template>
       </el-table-column>
@@ -73,20 +73,16 @@ export default {
     // refresh() {
     //   this.initData();
     // },
-    addCategory(){
-      this.id = 0;
-      this.showEditDialog = true;
-    },
-    removeItem(id) {
+    removeItem(row) {
       this.$confirm("确定删除?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
       })
         .then(() => {
-          console.log(id);
+          console.log(row);
           // console.log(row.categoryId);
-          categoryDelte({id:id})
+          categoryDelte({id:row})
             .then(result => {
               this.$message({
                 type: "success",
@@ -103,7 +99,7 @@ export default {
       this.initData();
     },
     handleSelectionChange(row) {
-      this.data.forEach(item => {
+      this.blogData.forEach(item => {
         if (item.status != row.status) {
           item.status = this.checked;
         }

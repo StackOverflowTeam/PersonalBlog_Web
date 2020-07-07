@@ -19,7 +19,6 @@
         <template slot-scope="s">
           <el-button type="danger" size="small" @click="removeItem(s.row)">删除</el-button>
         </template>
-        
       </el-table-column>
     </el-table>
     <el-pagination
@@ -36,8 +35,7 @@
 
 <script>
 import Edit from "./TagEdit.vue";
-import { tagDelete } from "@/api/modelManage/tag";
-
+import { tagDelete } from "@/api/modelManage/tag"
 import { tagList } from "@/api/modelManage/tag";
 export default {
   data() {
@@ -89,7 +87,7 @@ export default {
       });
       this.currentSelectItem = row;
     },
-    initData() {
+		 initData() {
       tagList({
         page: this.currpage, //page>0
         limit: this.pagesize
@@ -100,7 +98,7 @@ export default {
           // console.log(this.total);
         })
         .catch(() => {});
-    }
+    },
   },
   components: { Edit }
 };

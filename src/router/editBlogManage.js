@@ -20,7 +20,7 @@ export default {
       path:"/editBlog",
       name:"",
       meta:{
-        title:"新的感想"
+        title:"我的感想"
       },
       // component:resolve => require(["@/views/articleManage/articleList/WritBlog.vue"], resolve)
       component:resolve => require(["@/views/editBlogManage/EditBlog.vue"], resolve)

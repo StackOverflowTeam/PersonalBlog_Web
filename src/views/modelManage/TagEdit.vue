@@ -1,27 +1,25 @@
 <template>
-  <el-dialog
+  <el-dialog 
     @opened="openDialog"
     :width="dialogWidth"
     :title="title"
     :visible.sync="showEditDialog"
     :show-close="false"
-    :close-on-click-modal="false"
-  >
+    :close-on-click-modal="false">
     <el-form
       :model="forms"
       :rules="rules"
       ref="editForms"
       class="edit-forms"
       label-position="left"
-      :label-width="labelWidth"
-    >
+      :label-width="labelWidth">
       <el-form-item label="标签名称" prop="title">
-        <el-input v-model="forms.tagName"></el-input>
+        <el-input v-model="forms.title"></el-input>
       </el-form-item>
-      <!--不可填 ，自动生成 或者不显示出来-->
       <el-form-item label="添加时间" prop="date">
-        <el-input v-model="forms.createTime" readonly></el-input>
+        <el-input  v-model="forms.date"></el-input>
       </el-form-item>
+ 
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button type="infor" size="small" @click="$emit('close')" icon="el-icon-error">取消</el-button>
@@ -31,15 +29,14 @@
 </template>
 
 <script>
-import {
-  //规则引入
+import {//规则引入 
   Required,
   FillerFieldRules
 } from "@/utils/validateRules";
 // import { serverApiUrl }from "@/config/apiUrl";
-import { resetObject } from "@/utils/common";
-import { fillerLeft } from "@/utils/common";
-import { tagSave } from "@/api/modelManage/tag";
+// , resetObject 
+import { fillerLeft} from "@/utils/common";
+// import { saveGoods,getGoods } from "@/api/goodsManage/list";
 // import { CatagoryData } from "@/api/editBlogManage/editBlog";
 
 export default {
@@ -60,35 +57,30 @@ export default {
   },
   data() {
     return {
-      timer: "", // 定义一个定时器的变量
       forms: {
-        tagName: "",
-        createTime: ""
+        title: "",
+        date: "",
+  
       },
       rules: {
-        ...FillerFieldRules(["tagName"], Required)
-      }
-      // serverApiUrl:serverApiUrl,
-      //  CatagoryData:[]
+        ...FillerFieldRules(["title"], Required),
+      },
+	  // serverApiUrl:serverApiUrl,
+	  //  CatagoryData:[]
     };
   },
-  created() {
-    this.timer = setInterval(() => {
-      this.forms.createTime = this.$dateFormat(
-        new Date(),
-        "yyyy-mm-dd H:MM:ss"
-      );
-    }, 1000);
-    //       this.initData()//页面加载就初始化商品数据，默认选第一页的数据
-  },
+  // created() {
+  //       this.initData()//页面加载就初始化商品数据，默认选第一页的数据
+  // },
   methods: {
-    // initData(){
-    //   CatagoryData()
-    //   .then(r=>{//获取商品类型列表
-    //   	 this.goodsTypeData = r
-    //   }).catch(()=>{});
-    // },
+	  // initData(){
+			//   CatagoryData()
+			//   .then(r=>{//获取商品类型列表
+			//   	 this.goodsTypeData = r
+			//   }).catch(()=>{}); 
+	  // },
 
+	 
     submit() {
       this.$refs.editForms.validate(valid => {
         if (valid) {
@@ -96,18 +88,18 @@ export default {
             message: "字段验证通过，提交请求，成功后刷新分页！",
             type: "success"
           });
-          tagSave({ tagName: this.forms.tagName })
-            .then(r => {
-              this.$message({
-                message: r.msg,
-                type: "success"
-              });
-              // this.$emit("success");
-              this.$parent.showEditDialog = false; //成功后关闭添加窗口
-              this.$parent.initData();
-              //location.reload  数据和组件所有刷新，组件重构
-            })
-            .catch(() => {});
+          // tagSave({ tagName: this.forms.tagName })
+          //   .then(r => {
+          //     this.$message({
+          //       message: r.msg,
+          //       type: "success"
+          //     });
+          //     // this.$emit("success");
+          //     this.$parent.showEditDialog = false; //成功后关闭添加窗口
+          //     this.$parent.initData();
+          //     //location.reload  数据和组件所有刷新，组件重构
+          //   })
+          //   .catch(() => {});
         } else {
           this.$message({
             message: "请按照提示正确填写内容！",
@@ -117,34 +109,28 @@ export default {
         }
       });
     },
-
-    openDialog() {
-      if (this.$parent.id != null) {
-        //修改
-        this.title = "编辑";
-        // getGoods({ id: this.$parent.id })
-        //   .then(r => {
-        //     //获取商品类型列表
-        //     this.FillerFormField(this.$parent.id, r);
-        //     this.forms.url = this.$parent.serverImageUrl + r.imgpath;
-        //     this.$parent.id = null;
-        //   })
-        //   .catch(() => {});
-      } else {
-        //新增
-        this.title = "添加";
-        resetObject(this.forms);
-        this.$set(this.forms, "id", null);
-        this.$refs.editForms.resetFields();
-      }
-    },
+	  
+  //   openDialog() {
+		// if(this.$parent.id != null){//修改
+		//     this.title="编辑商品";
+		// 	getGoods({id:this.$parent.id })
+		// 	.then(r=>{//获取商品类型列表
+		//   this.FillerFormField(this.$parent.id ,r);
+		//   this.forms.url = this.$parent.serverImageUrl+r.imgpath;
+		//   this.$parent.id = null;
+		//   }).catch(()=>{});
+		// }else{//新增
+		//     this.title="添加商品";
+		// 	resetObject(this.forms);
+		// 	this.$set(this.forms, "id", null);
+		// 	this.$refs.editForms.resetFields();
+		// }
+     
+  //   },
     FillerFormField(id, data) {
       //可以外部填充回写做编辑用，也可以请求详情接口填充表单
       this.$set(this.forms, "id", id);
       fillerLeft(this.forms, data);
-    },
-    beforeDestroy() {
-      this.timer && clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
     }
   }
 };

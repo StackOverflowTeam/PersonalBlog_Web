@@ -14,7 +14,7 @@
 		<div>
 			<span style="margin-right: 50px;float: right;">欢迎来到
 		<!--	<a href="http://localhost:8080/#/home" style="font-size:20px ;"> -->
-		<a @click="$router.push('/home')" target="_self" style="font-size:20px ;">
+		<a target="_self" style="font-size:20px ;">
 			{{personname}} </a>的博客~</span>	
 		</div>
 		<div class="main" style="padding-top: 20px;">
