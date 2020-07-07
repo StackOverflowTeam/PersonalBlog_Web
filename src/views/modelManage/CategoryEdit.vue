@@ -31,7 +31,7 @@
           :show-file-list="false"
           :on-success="handleAvatarSuccess"
           :before-upload="beforeAvatarUpload"
-          :action="aaa"
+          :action="qiNiu"
         >
         <!--action要改  :action="serverApiUrl+'/upload/uploadGoodsImg'"-->
           <img v-if="forms.url" :src="forms.url" class="avatar" />
@@ -55,6 +55,8 @@ import {
   FillerFieldRules
 } from "@/utils/validateRules";
 // import { serverApiUrl }from "@/config/apiUrl";
+import { qiNiu } from "@/config/apiUrl";
+
 
 import { fillerLeft } from "@/utils/common";
 import {  resetObject } from "@/utils/common";
@@ -84,8 +86,9 @@ export default {
         categoryName: "",
         createTime: "",
         url: "", //预览图片完整路径
-        picName: "" //保存到数据库的图片名称
+        // picName: "" //保存到数据库的图片名称
       },
+      qiNiu:qiNiu,
       rules: {
         ...FillerFieldRules(["categoryName"], Required)
       }

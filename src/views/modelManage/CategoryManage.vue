@@ -17,7 +17,7 @@
       <el-table-column prop label="分类图标">
         <template slot-scope="s">
           <!--src="serverImageUrl+s.row.imgpath" -->
-          <el-image style="width: 100px;" :src="s.row.url"></el-image>
+          <el-image style="width: 100px;" :src="imgUrl+s.row.categoryIcon"></el-image>
         </template>
       </el-table-column>
       <el-table-column prop="createTime" label="添加时间"></el-table-column>
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import { qiNiu } from "@/config/apiUrl";
 import { categoryList, categoryDelte } from "@/api/modelManage/category";
 import Edit from "./CategoryEdit.vue";
 export default {
@@ -52,7 +53,8 @@ export default {
       // checked:false,
       showEditDialog: false,
       data: [],
-      id: null
+      id: null,
+      imgUrl:qiNiu+"/",
     };
   },
   created() {

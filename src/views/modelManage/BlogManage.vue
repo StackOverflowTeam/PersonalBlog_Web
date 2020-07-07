@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 08:05:45
- * @LastEditTime: 2020-07-05 09:01:10
+ * @LastEditTime: 2020-07-07 22:30:20
  * @LastEditors: your name
  * @Description: 博客管理页面
  * @FilePath: \PersonalBlog_Web\src\views\modelManage\BlogManage.vue
@@ -19,7 +19,7 @@
       <el-table-column prop label="预览图">
         <template slot-scope="s">
           <!--src="serverImageUrl+s.row.imgpath" -->
-          <el-image style="width: 160px;" :src="s.row.url"></el-image>
+          <el-image style="width: 160px;" :src="imgUrl+s.row.blogCoverImage"></el-image>
         </template>
       </el-table-column>
       <el-table-column prop label="状态">
@@ -43,17 +43,18 @@
 </template>
  
  <script>
-// import { serverApiUrl } from "@/config/apiUrl";
+import { qiNiu } from "@/config/apiUrl";
 import { bloglist } from "@/api/modelManage/blog";
 
 // import sy1 from "@/assets/images/sy_img1.jpg";
 export default {
   data() {
     return {
-      pagesize: 5, //每页显示的数据
+      pagesize: 2, //每页显示的数据
       currpage: 1, //默认为第一页
       total: 0, //总页数
-      blogData: []
+      blogData: [],
+      imgUrl:qiNiu+"/"
     };
   },
   created() {
