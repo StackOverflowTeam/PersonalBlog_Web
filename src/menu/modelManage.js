@@ -1,11 +1,13 @@
 /*
  * @Author: Zhang Qing
  * @Date: 2020-07-02 21:56:40
- * @LastEditTime: 2020-07-04 21:33:01
+ * @LastEditTime: 2020-07-07 13:13:10
  * @LastEditors: your name
  * @Description: 管理模块
  * @FilePath: \PersonalBlog_Web\src\menu\modelManage.js
  */ 
+
+ //这个文件的path是显示再浏览器上的
 export default {
   name:"管理模块",
   icon:"el-icon-s-operation",
@@ -31,10 +33,10 @@ export default {
       icon:"fa fa-tags",
       path:"/model_manage/tag_manage"
     },
-    tagRelationCardList:{
+    LinkCardList:{
       name:"友情链接",
       icon:"el-icon-link",  
-      path:"/model_manage/tagRelation_manage"
+      path:"/model_manage/LinkManage"
     }
   }
 };

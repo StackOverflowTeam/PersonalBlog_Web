@@ -15,7 +15,7 @@ import dateFormat from 'dateformat';
 
 Vue.config.productionTip = false;
 Vue.prototype.GlobalCfg = Config;
-Vue.prototype.$dateFormat = dateFormat
+Vue.prototype.$dateFormat = dateFormat;
 Vue.use(elementUi);
 
 router.beforeEach((to, from, next) => {

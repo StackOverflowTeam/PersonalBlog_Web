@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import Edit from "./TagRelationEdit.vue";
-import { linkList } from "@/api/modelManage/tagRelation";
+import Edit from "./LinkEdit.vue";
+import { linkList } from "@/api/modelManage/link";
 export default {
   data() {
     return {

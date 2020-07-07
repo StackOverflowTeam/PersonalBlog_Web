@@ -1,15 +1,4 @@
-<!--
- * @Author: Zhang Qing
- * @Date: 2020-07-03 00:33:58
-<<<<<<< HEAD
- * @LastEditTime: 2020-07-04 09:29:10
-=======
- * @LastEditTime: 2020-07-03 21:55:28
->>>>>>> 9d47891053a73571fde5e3f1a1d707e5c7a0a012
- * @LastEditors: your name
- * @Description: 编写博客页面
- * @FilePath: \PersonalBlog_Web\src\views\editBlogManage\EditBlog.vue
---> 
+
 <template>
   <div>
   <el-form :model="form">

@@ -1,3 +1,4 @@
+
 import request from "@/utils/request.js";
 
 //获取整体信息
@@ -33,12 +34,12 @@ export function categoryUpdate(params) {
     data: params
   });
 }
-//删
+//删 只是页面不显示 数据库还没做更改
 export function categoryDelte(params) {
   // 后端采用RequestBody注解 将参数转成json格式
-  console.log("参数" + JSON.stringify(params));
+  // console.log("参数" + JSON.stringify(params));
   return request({
-    url: "/categories/delete",
+    url: "/categories/updateStatus",
     method: "post",
     // data: JSON.stringify(params)
     data:params

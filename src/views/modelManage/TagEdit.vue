@@ -104,7 +104,7 @@ export default {
               });
               // this.$emit("success");
               this.$parent.showEditDialog = false; //成功后关闭添加窗口
-              this.$parent.refresh();
+              this.$parent.initData();
               //location.reload  数据和组件所有刷新，组件重构
             })
             .catch(() => {});

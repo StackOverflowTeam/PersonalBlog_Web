@@ -18,7 +18,6 @@
       <el-table-column prop label="操作">
         <template slot-scope="s">
           <el-button type="danger" size="small" @click="removeItem(s.row)">删除</el-button>
-          {{s.row.id}}
         </template>
         
       </el-table-column>
@@ -63,13 +62,13 @@ export default {
         type: "warning"
       })
         .then(() => {
-          console.log(row);
-          tagDelete({id:row.tagId}).then((r) => {
+          // console.log(row);
+          tagDelete({tagId:row.tagId}).then((r) => {
              this.$message({
             type: "success",
             message: r.msg //对应后台的status
           });
-          this.refresh();
+          this.initData();
           }).catch(() => {
           });
         })

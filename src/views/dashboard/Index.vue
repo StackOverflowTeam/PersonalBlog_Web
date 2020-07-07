@@ -1,7 +1,7 @@
 <!--
  * @Author: Zhang Qing
  * @Date: 2020-07-03 00:09:59
- * @LastEditTime: 2020-07-05 08:17:48
+ * @LastEditTime: 2020-07-07 13:34:20
  * @LastEditors: your name
  * @Description: 后台管理主页（zq版）
  * @FilePath: \PersonalBlog_Web\src\views\dashboard\Index.vue
@@ -75,9 +75,9 @@
           <el-col :span="6">
             <div class="grid-content">
               <div style="padding: 20px;background: #3c8dbc">
-                <div @click="$router.push({name:'TagRelationManage'})">
+                <div @click="$router.push({name:'LinkManage'})">
                   <i class="el-icon-picture index-icon"></i>
-                  <h3 style="text-align:right">{{tagRelation}}</h3>
+                  <h3 style="text-align:right">{{LinkManage}}</h3>
                 </div>
                 <p style="text-align:center">友情链接</p>
               </div>
@@ -94,7 +94,7 @@ import { blogCount } from "@/api/modelManage/blog";
 import { categoryList } from "@/api/modelManage/category";
 import { commentList } from "@/api/modelManage/comment";
 import { tagCount } from "@/api/modelManage/tag";
-import { linkCount } from "@/api/modelManage/tagRelation";
+import { linkCount } from "@/api/modelManage/link";
 
 export default {
   data() {
@@ -103,7 +103,7 @@ export default {
       commentNum: "",
       categoryNum: "",
       tagNum: "",
-      tagRelation: ""
+      LinkManage: ""
     };
   },
   created() {
@@ -139,7 +139,7 @@ export default {
 
     linkCount()
       .then(result => {
-        this.tagRelation = result;
+        this.LinkManage = result;
       })
       .catch(() => {});
   },
