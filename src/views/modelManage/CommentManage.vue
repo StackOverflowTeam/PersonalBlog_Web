@@ -16,6 +16,7 @@
       :cell-style="{'text-align':'center'}"
     >
       <el-table-column prop="commentBody" label="评论内容">
+		    <el-button type="success" @click="open">查看</el-button>
       <!--  <el-button type="success" size="medium">查看</el-button> -->
       </el-table-column>
       <el-table-column prop="commentCreateTime" label="评论时间"></el-table-column>
@@ -60,6 +61,17 @@ export default {
     this.initData();
   },
   methods: {
+	      open() {
+	          this.$alert('不愧是大佬啊，佩服', '评论', {
+	            confirmButtonText: '确定',
+	            // callback: action => {
+	            //   this.$message({
+	            //     type: 'info',
+	            //     //message: `action: ${ action }`
+	            //   });
+	            // }
+	          });
+	        },
     currentChange(currentPage) {
       this.currpage = currentPage;
       this.initData();

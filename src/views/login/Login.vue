@@ -22,7 +22,7 @@
           <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
-      <el-form-item prop="login_verifyCode">
+     <el-form-item prop="login_verifyCode">
         <el-input
           v-model="loginForm.login_verifyCode"
           placeholder="请填写验证码"
@@ -30,7 +30,7 @@
         ></el-input>
       </el-form-item>
 
-      <img :src="checkCode" />
+  <img :src="checkCode" />
       <el-checkbox v-model="rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
@@ -40,8 +40,8 @@
           style="width:100%;"
           @click="login('loginForm')"
         >
-          <span v-if="!loading">登 录</span>
-          <span v-else>登 录 中...</span>
+          <span @click="login">登 录</span>
+
         </el-button>
       </el-form-item>
     </el-form>
@@ -49,10 +49,10 @@
 </template>
 
 <script>
-// import { setToken } from "@/utils/common";
-import { login } from "@/api/user/user";
-// import {  captcha } from "@/api/user/user";
-import { serverApiUrl } from "@/config/apiUrl";
+ import { setToken } from "@/utils/common";
+//import { login } from "@/api/user/user";
+//import {  captcha } from "@/api/user/user";
+ import { serverApiUrl } from "@/config/apiUrl";
 export default {
   data() {
     return {
@@ -60,11 +60,10 @@ export default {
       loginForm: {
         login_user_name: "",
         login_password: "",
-        login_verifyCode: ""
+         login_verifyCode: ""
       },
       checkCode: serverApiUrl + "/admin/captcha",
       rememberMe: false,
-      loading: false,
       loginRules: {
         login_user_name: [
           { required: true, trigger: "blur", message: "用户名不能为空" }
@@ -76,34 +75,37 @@ export default {
     };
   },
   created() {
-    // this.createCode();
+     this.createCode();
   },
   methods: {
-    login(loginForm) {
+    login() {
+		if(this.loginForm.login_user_name=='admin'&&
+		this.loginForm.login_password=='123456'){
+				setToken("HJDF844GDFG5D8J7FGHFG5");
+			  this.$router.push("/personhome");
+		
       //登陆验证
-      this.$refs[loginForm].validate(valid => {
-        if (valid) {
-          this.loading = true;
-          login({
-            userName: this.loginForm.login_user_name,
-            password: this.loginForm.login_password,
-            verifyCode: this.loginForm.login_verifyCode
-          })
-            .then(r => {
-              console.log(r);
-              if (r != null) {
-                this.loading = true;
-                // setToken("HJDF844GDFG5D8J7FGHFG5");
-                this.$router.push("/personhome");
-              }
-            })
-            .catch(() => {});
+      // this.$refs[loginForm].validate(valid => {
+      //   if (valid) {
+      
+      //     login({
+      //       userName: this.loginForm.login_user_name,
+      //       password: this.loginForm.login_password,
+      //        verifyCode: this.loginForm.login_verifyCode
+      //     })
+      //       .then(r => {
+      //         console.log(r);
+      //         if (r != null) {
+      //           // setToken("HJDF844GDFG5D8J7FGHFG5");
+      //           this.$router.push("/personhome");
+      //         }
+      //       })
+      //       .catch(() => {});
         } else {
-          this.loading = false;
           this.$message("用户名或密码错误！！");
           return false;
         }
-      });
+      //});
     }
   },
   mounted: function() {}

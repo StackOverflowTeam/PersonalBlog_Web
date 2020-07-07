@@ -5,9 +5,8 @@
 		</div>
 		<ul class="topNav">
 			<li :class="[showHot==0?'active':'']" @click="showHot=0">文章</li>
-			<!-- <li :class="[showHot==1?'active':'']" @click="showHot=1">微语</li> -->
-			<li :class="[showHot==2?'active':'']" @click="showHot=2">留言</li>
-			<li :class="[showHot==3?'active':'']" @click="showHot=3">相册</li>
+			<li :class="[showHot==1?'active':'']" @click="showHot=1">留言</li>
+			<li :class="[showHot==2?'active':'']" @click="showHot=2">相册</li>
 			<!-- href="http://localhost:8080/#/home" @click="bloghome" -->
 			<li ><a @click="$router.push('/model_manage/blog_manage')" style="color: black;line-height: 48px;" >博客管理</a></li>
 		</ul>
@@ -19,9 +18,8 @@
 		</div>
 		<div class="main" style="padding-top: 20px;">
 			<artical v-show="showHot==0"></artical>
-			<!-- <saylittle v-show="showHot==1"></saylittle> -->
-			<message v-show="showHot==2"></message>
-			<photo v-show="showHot==3"></photo>
+			<message v-show="showHot==1"></message>
+			<photo v-show="showHot==2"></photo>
 		</div>
 		<div>
 			<hr>
@@ -61,7 +59,7 @@
 		data() {
 			return {
 				num:"1234567890",
-				personname: "小明",
+				personname: "Admin",
 				showHot: 0
 			}
 		},

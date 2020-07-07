@@ -103,41 +103,35 @@ export default {
     // this.initData()//页面加载就初始化商品数据，默认选第一页的数据
   },
   methods: {
-    // initData(){
-    //   CatagoryData()
-    //   .then(r=>{//获取商品类型列表
-    //   	 this.goodsTypeData = r
-    //   }).catch(()=>{});
-    // },
 
     submit() {
-      this.$refs.editForms.validate(valid => {
-        if (valid) {
-          this.$message({
-            message: "字段验证通过，提交请求，成功后刷新分页！",
-            type: "success"
-          });
-          //this.$emit("success"); //通知列表分页刷新
-          categorySave(this.forms)
-            .then(r => {
-              this.$message({
-                message: r.msg,
-                type: "success"
-              });
-              // this.$emit("success");
-              this.$parent.refresh();
-              this.$parent.showEditDialog = false; //成功后关闭添加窗口
-              //location.reload  数据和组件所有刷新，组件重构
-            })
-            .catch(() => {});
-        } else {
-          this.$message({
-            message: "请按照提示正确填写内容！",
-            type: "warning"
-          });
-          return false;
-        }
-      });
+     this.$refs.editForms.validate(valid => {
+       if (valid) {
+         this.$message({
+           message: "字段验证通过，提交请求，成功后刷新分页！",
+           type: "success"
+         });
+         // this.$emit("success"); //通知列表分页刷新
+         categorySave(this.forms)
+           .then(r => {
+             this.$message({
+               message: r.msg,
+               type: "success"
+             });
+             // this.$emit("success");
+             this.$parent.showEditDialog = false; //成功后关闭添加窗口
+             this.$parent.initData();
+             //location.reload  数据和组件所有刷新，组件重构
+           })
+           .catch(() => {});
+       } else {
+         this.$message({
+           message: "请按照提示正确填写内容！",
+           type: "warning"
+         });
+         return false;
+       }
+     });
     },
 
     handleAvatarSuccess(res, file) {

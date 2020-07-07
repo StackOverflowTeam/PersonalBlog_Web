@@ -47,7 +47,7 @@ export function categoryDelte(params) {
   // 后端采用RequestBody注解 将参数转成json格式
   // console.log("参数" + JSON.stringify(params));
   return request({
-    url: "/categories/updateStatus",
+    url: "/categories/delete",
     method: "post",
     // data: JSON.stringify(params)
     data:params
