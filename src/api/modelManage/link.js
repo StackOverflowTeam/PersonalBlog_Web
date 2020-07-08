@@ -1,5 +1,3 @@
-
-
 import request from "@/utils/request.js";
 
 export function linkList(params) {
@@ -27,6 +25,7 @@ export function linkUpdate(params) {
 }
 
 export function linkDelete(params) {
+  console.log(params);
   return request({
     url: "/links/updateStatus",
     method: "post",

@@ -23,7 +23,7 @@
       <el-table-column prop="createTime" label="添加时间"></el-table-column>
       <el-table-column prop label="操作">
         <template slot-scope="s">
-          <el-button type="warning" size="small" @click="editItem(s.row.id)">修改</el-button>
+          <el-button type="warning" size="small" @click="editItem(s.row.categoryId)">修改</el-button>
           <el-button type="danger" size="small" @click="removeItem(s.row.categoryId)">删除</el-button>
         </template>
       </el-table-column>

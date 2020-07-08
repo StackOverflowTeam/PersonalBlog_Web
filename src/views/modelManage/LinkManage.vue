@@ -24,7 +24,7 @@
       <el-table-column prop="createTime" label="添加时间"></el-table-column>
       <el-table-column prop label="操作">
         <template slot-scope="s">
-          <el-button type="warning" size="small" @click="editItem(s.row.id)">修改</el-button>
+          <el-button type="warning" size="small" @click="editItem(s.row)">修改</el-button>
           <el-button type="danger" size="small" @click="removeItem(s.row)">删除</el-button>
         </template>
       </el-table-column>
@@ -32,6 +32,7 @@
     <el-pagination
       layout="prev, pager, next, total"
       @current-change="currentChange"
+      :current-page.sync="currpage"
       :page-size="pagesize"
       :total="total"
     ></el-pagination>
@@ -41,11 +42,12 @@
 
 <script>
 import Edit from "./LinkEdit.vue";
+import { linkDelete } from "@/api/modelManage/link";
 import { linkList } from "@/api/modelManage/link";
 export default {
   data() {
     return {
-      pagesize: 6, //每页显示的数据
+      pagesize: 4, //每页显示的数据
       currpage: 1, //默认为第一页
       total: 0,
       currentSelectItem: [],
@@ -65,7 +67,16 @@ export default {
         type: "warning"
       })
         .then(() => {
-          row.d = 0;
+          console.log(row);
+          linkDelete({linkId:row.linkId}).then((result) => {
+            this.$message({
+                type: "success",
+                message: result.msg
+              });
+              this.initData();
+          }).catch(() => {
+            
+          });
         })
         .catch(() => {});
     },
